@@ -7,7 +7,7 @@ export default function Panels() {
   const reduce = useReducedMotion();
   const bob = (d) => (reduce ? {} : { animate: { y: [0, -8, 0] }, transition: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: d } });
   return (
-    <section className="section panels-sec on-dark" id="how">
+    <section className="section plate panels-sec" id="how">
       <div className="wrap">
         <Reveal className="pn-head">
           <div>
@@ -16,7 +16,7 @@ export default function Panels() {
           </div>
           <div>
             <p className="lead" style={{ marginBottom: 22 }}>არავითარი გამოცნობა. ყოველ დილას იცი, რა მიირთვა და რატომ არის ეს შენთვის სწორი.</p>
-            <a href="#plans" className="btn btn-cream">აირჩიე პროგრამა <Arrow /></a>
+            <a href="#plans" className="btn btn-forest">აირჩიე პროგრამა <Arrow /></a>
           </div>
         </Reveal>
 

@@ -1,6 +1,6 @@
 "use client";
 import Reveal from "./Reveal";
-import { Star, Play } from "./Icons";
+import { Star } from "./Icons";
 
 const T = [
   ["/img/t3.jpg", "ანა", "4 თვე Bloomsize-თან", "ბოლოს ვიპოვე დიეტა, რომელსაც მართლა მივყვები. მენიუ მრავალფეროვანია და არასდროს მშია."],
@@ -10,9 +10,12 @@ const T = [
 
 export default function Testimonials() {
   return (
-    <section className="section rev" id="reviews">
+    <section className="section plate rev" id="reviews">
       <div className="wrap">
-        <Reveal as="h2">ჩვენი მომხმარებლები რეალურ შედეგებს აღწევენ</Reveal>
+        <Reveal className="sec-head">
+          <p className="eyebrow center">წარმატების ისტორიები</p>
+          <h2>რეალური ადამიანები, რეალური შედეგები</h2>
+        </Reveal>
         <Reveal className="rate">
           <span className="stars" aria-hidden="true">{[0, 1, 2, 3, 4].map((k) => <Star key={k} />)}</span>
           <span><b className="num">4.9/5</b> შეფასება</span><i />
@@ -21,14 +24,11 @@ export default function Testimonials() {
         <div className="tgrid">
           {T.map(([img, n, m, q], i) => (
             <Reveal key={n} delay={i * 0.1} className="tcard">
-              <figure>
-                <img src={img} alt="" loading="lazy" style={{ objectPosition: "50% 22%" }} />
-                <figcaption>
-                  <div><b>{n}</b><small>{m}</small></div>
-                  <span className="pbtn" aria-hidden="true"><Play /></span>
-                </figcaption>
-              </figure>
               <blockquote>„{q}“</blockquote>
+              <figure>
+                <img src={img} alt="" loading="lazy" width="56" height="56" />
+                <figcaption><b>{n}</b><small>{m}</small></figcaption>
+              </figure>
             </Reveal>
           ))}
         </div>

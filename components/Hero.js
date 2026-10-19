@@ -1,62 +1,68 @@
 "use client";
-import Image from "next/image";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { Arrow, Check, Star } from "./Icons";
+import { motion, useReducedMotion } from "framer-motion";
+import { Arrow, Check, Leaf, Heart, Sprout } from "./Icons";
 import { useApp } from "./Providers";
 
-const up = (d) => ({ initial: { opacity: 0, y: 36 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.9, delay: d, ease: [0.16, 1, 0.3, 1] } });
+const up = (d) => ({ initial: { opacity: 0, y: 28 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.9, delay: d, ease: [0.16, 1, 0.3, 1] } });
 
 export default function Hero() {
   const reduce = useReducedMotion();
   const { openCheckout } = useApp();
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 800], [0, reduce ? 0 : 120]);
-  const float = (d) => (reduce ? {} : { animate: { y: [0, -9, 0] }, transition: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: d } });
+  const float = (d) => (reduce ? {} : { animate: { y: [0, -8, 0] }, transition: { duration: 7, repeat: Infinity, ease: "easeInOut", delay: d } });
 
   return (
     <section className="hero" id="top">
-      <motion.div className="hero-img" style={{ y }}>
-        <motion.div style={{ width: "100%", height: "100%", position: "relative" }} initial={{ scale: reduce ? 1 : 1.1 }} animate={{ scale: 1 }} transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1] }}>
-          <Image src="/img/hero.jpg" alt="გოგონა ახალი პომიდვრით ოქროსფერ მინდორზე" fill priority sizes="100vw" quality={75} />
-        </motion.div>
-      </motion.div>
+      <div className="hero-bg" aria-hidden="true" />
+      <motion.img className="hero-woman" src="/bg/woman.webp" alt="ბედნიერი გოგონა, რომელიც სახეს მზისკენ აღმართავს" width="1100" height="1363" fetchPriority="high"
+        initial={{ opacity: 0, scale: 1.04 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }} />
 
       <div className="wrap hero-in">
         <div className="hero-copy">
-          <motion.p className="eyebrow" {...up(0.05)}>ჯანსაღი სხეული. მშვიდი გონება.</motion.p>
+          <motion.p className="eyebrow" {...up(0.05)}>უფრო ჯანსაღი, უფრო ბედნიერი შენ</motion.p>
           <motion.h1 {...up(0.15)}>
-            <span>იკვებე ჭკვიანურად.</span>
-            <span className="acc">იცოცხლე უკეთ.</span>
+            რეალური ცვლილება <span>აქ იზრდება</span>
           </motion.h1>
           <motion.p className="lead" {...up(0.28)}>
-            დიეტები, სამოტივაციო ვიდეოები და პერსონალური კვების გეგმა ერთ სივრცეში. აირჩიე პროგრამა და დაიწყე დღესვე.
+            მდგრადი წონის კლება, უკეთესი კვება და ჯანსაღი ცხოვრების წესი. შექმნილია იმისთვის, რომ შენი საუკეთესო ვერსია გაიფურჩქნოს.
           </motion.p>
           <motion.div className="hero-ctas" {...up(0.4)}>
-            <button className="btn btn-olive" onClick={() => openCheckout("plus")}>დაიწყე ახლავე <Arrow /></button>
-            <a href="#plans" className="btn btn-line">ფასები</a>
+            <button className="btn btn-forest" onClick={() => openCheckout("plus")}>დაიწყე გზა <Arrow /></button>
+            <a href="#programs" className="btn btn-ghost">გაიგე მეტი</a>
           </motion.div>
-          <motion.p className="price-line" {...up(0.5)}>
-            <span><b className="num">15₾</b> პირველი თვე, შემდეგ <b className="num">30₾</b>-დან</span>
-            <span>30 დღეში თანხის დაბრუნება</span>
-          </motion.p>
-          <motion.div className="trust" {...up(0.6)}>
-            <div className="avs"><img src="/img/t1.jpg" alt="" /><img src="/img/t2.jpg" alt="" /><img src="/img/t3.jpg" alt="" /></div>
-            <div>
-              <div className="stars" aria-label="5 ვარსკვლავი">{[0, 1, 2, 3, 4].map((k) => <Star key={k} />)}</div>
-              <small><b className="num">4.9/5</b> · 1 000+ კმაყოფილი მომხმარებელი</small>
-            </div>
+          <motion.ul className="hero-points" {...up(0.52)}>
+            <li><i><Leaf /></i><span>მეცნიერულად დასაბუთებული კვება</span></li>
+            <li><i><Heart /></i><span>მდგრადი შედეგები</span></li>
+            <li><i><Sprout /></i><span>უფრო ჯანსაღი, ბედნიერი შენ</span></li>
+          </motion.ul>
+        </div>
+
+        <div className="hero-cards">
+          <motion.div className="hcard hc-ring" {...up(0.55)}>
+            <motion.div className="hc-in" {...float(0)}>
+              <div className="ring" role="img" aria-label="72 პროცენტი">
+                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" className="r-bg" /><circle cx="50" cy="50" r="42" className="r-fg" pathLength="100" strokeDasharray="72 100" /></svg>
+                <b className="num">72%</b>
+              </div>
+              <div>
+                <h3>თავს მსუბუქად იგრძნობ</h3>
+                <ul>
+                  <li><span><Check /></span>მეტი ენერგია</li>
+                  <li><span><Check /></span>ჯანსაღი ჩვევები</li>
+                  <li><span><Check /></span>ხანგრძლივი შედეგი</li>
+                </ul>
+              </div>
+            </motion.div>
+          </motion.div>
+          <motion.div className="hcard hc-prog" {...up(0.7)}>
+            <motion.div className="hc-in" {...float(1.6)}>
+              <span className="hc-leaf"><Leaf /></span>
+              <h3>პროგრესი სხვანაირად იგრძნობა</h3>
+              <p>პატარა ნაბიჯები.<br />დიდი ცვლილებები.</p>
+              <div className="bars" aria-hidden="true"><i /><i /><i /><i /></div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
-
-      <motion.div className="hchip" style={{ right: "6%", top: "56%" }} {...float(0)}>
-        <img src="/img/f-salmon.jpg" alt="" />
-        <div><small>ლანჩი · 13:30</small><b>ორაგულის ბოული</b><em>610 კკალ · 38g ცილა</em></div>
-        <span className="ok"><Check /></span>
-      </motion.div>
-      <motion.div className="hchip" style={{ right: "26%", top: "26%" }} {...float(1.5)}>
-        <div><small>ამ კვირის შედეგი</small><b className="num" style={{ fontSize: 22 }}>−1.8 კგ</b></div>
-      </motion.div>
     </section>
   );
 }

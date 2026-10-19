@@ -57,7 +57,7 @@ export default function Checkout({ planId, onClose, onDone }) {
             <motion.div className="done-ic" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 260, damping: 18 }}><Check /></motion.div>
             <h3>გადახდა წარმატებულია</h3>
             <p className="lead" style={{ margin: "0 auto" }}>პროგრამა {plan.name} გააქტიურებულია. დეტალებს ელფოსტაზე გამოგიგზავნით.</p>
-            <button className="btn btn-olive" onClick={onClose}>დახურვა</button>
+            <button className="btn btn-forest" onClick={onClose}>დახურვა</button>
           </div>
         ) : (
           <>
@@ -81,7 +81,7 @@ export default function Checkout({ planId, onClose, onDone }) {
                 {field("exp", "ვადა", { inputMode: "numeric", autoComplete: "cc-exp", placeholder: "MM / YY", onChange: set("exp", fmtExp) })}
                 {field("cvc", "CVC", { inputMode: "numeric", autoComplete: "cc-csc", placeholder: "123", maxLength: 3, onChange: set("cvc", (v) => v.replace(/\D/g, "")) })}
               </div>
-              <button className="btn btn-olive" type="submit" disabled={busy} style={busy ? { opacity: 0.7 } : null}>{busy ? "მუშავდება..." : `გადაიხადე ${plan.first}₾`}</button>
+              <button className="btn btn-forest" type="submit" disabled={busy} style={busy ? { opacity: 0.7 } : null}>{busy ? "მუშავდება..." : `გადაიხადე ${plan.first}₾`}</button>
               <p className="secure"><Lock /> დაცული გადახდა · 30 დღეში თანხის დაბრუნება</p>
               <p className="demo-tag">დემო რეჟიმი: რეალური თანხა არ ჩამოიჭრება და ბარათის მონაცემები არ ინახება.</p>
             </form>

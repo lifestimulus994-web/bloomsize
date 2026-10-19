@@ -15,12 +15,11 @@ const CARDS = [
 export default function Roadmap() {
   const { openCheckout } = useApp();
   return (
-    <section className="road on-dark">
-      <img src="/img/road.jpg" alt="" loading="lazy" />
+    <section className="section plate flip road">
       <div className="wrap">
         <Reveal as="h2">კვების გეგმა, რომელიც მხოლოდ შენია</Reveal>
         <Reveal delay={0.1} className="lead">ნუტრიციოლოგი ითვალისწინებს შენს გრაფიკს, გემოვნებას და მიზნებს, შემდეგ კი გეგმას ყოველკვირეულად აახლებს შედეგების მიხედვით.</Reveal>
-        <Reveal delay={0.15}><button className="btn btn-cream" onClick={() => openCheckout("pro")}>დაიწყე Pro <Arrow /></button></Reveal>
+        <Reveal delay={0.15}><button className="btn btn-forest" onClick={() => openCheckout("pro")}>დაიწყე Pro <Arrow /></button></Reveal>
         <Reveal className="member">
           <img src="/img/t1.jpg" alt="" />
           <div><b>ნინო</b><small>Bloomsize Pro წევრი</small></div>

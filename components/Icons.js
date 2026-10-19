@@ -19,4 +19,8 @@ export const User = (p) => (<svg viewBox="0 0 24 24" {...S} {...p}><circle cx="1
 export const Drop = (p) => (<svg viewBox="0 0 24 24" {...S} {...p}><path d="M12 3s6 6.2 6 11a6 6 0 0 1-12 0c0-4.8 6-11 6-11Z" /></svg>);
 export const Fish = (p) => (<svg viewBox="0 0 24 24" {...S} {...p}><path d="M3 12c3-5 8-6 13-3l5-3v12l-5-3c-5 3-10 2-13-3Z" /><circle cx="8.5" cy="11" r=".8" fill="currentColor" /></svg>);
 export const Video = (p) => (<svg viewBox="0 0 24 24" {...S} {...p}><rect x="3" y="5" width="18" height="14" rx="3" /><path d="m10 9.5 5 2.5-5 2.5v-5Z" fill="currentColor" /></svg>);
-export const Dish = (p) => (<svg viewBox="0 0 24 24" {...S} {...p}><path d="M4 14h16a8 8 0 0 1-16 0Z" /><path d="M9 10c0-2 1-2 1-4M13 10c0-2 1-2 1-4" /></svg>);
+export const Sprout = (p) => (<svg viewBox="0 0 24 24" {...S} {...p}><path d="M12 21v-9" /><path d="M12 12C12 8 9 6 4 6c0 4 2.5 6 8 6Z" /><path d="M12 14c0-3.5 2.5-5.5 8-5.5 0 3.7-2.7 5.5-8 5.5Z" /></svg>);
+export const Crown = (p) => (<svg viewBox="0 0 24 24" {...S} {...p}><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5L3 8Z" /></svg>);
+export const Lotus = (p) => (<svg viewBox="0 0 24 24" {...S} {...p}><path d="M12 20c-3.5-2-5-5-5-8 2 .5 3.8 1.8 5 4 1.2-2.2 3-3.5 5-4 0 3-1.5 6-5 8Z" /><path d="M12 16c-2-2.5-2-6 0-10 2 4 2 7.5 0 10Z" /><path d="M3 12c2 0 3.7.7 5 2M21 12c-2 0-3.7.7-5 2" /></svg>);
+export const Dumbbell = (p) => (<svg viewBox="0 0 24 24" {...S} {...p}><path d="M6.5 6.5v11M17.5 6.5v11M3 9.5v5M21 9.5v5M6.5 12h11" /></svg>);
+export const Dish =(p) => (<svg viewBox="0 0 24 24" {...S} {...p}><path d="M4 14h16a8 8 0 0 1-16 0Z" /><path d="M9 10c0-2 1-2 1-4M13 10c0-2 1-2 1-4" /></svg>);

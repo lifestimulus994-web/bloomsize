@@ -6,7 +6,7 @@ export const metadata = {
   description: "დიეტები, სამოტივაციო ვიდეოები და პერსონალური კვების გეგმა ერთ სივრცეში.",
   icons: { icon: "/img/logo.png" },
 };
-export const viewport = { width: "device-width", initialScale: 1, themeColor: "#F3EEE4" };
+export const viewport = { width: "device-width", initialScale: 1, themeColor: "#EAEFE4" };
 
 export default function RootLayout({ children }) {
   return (

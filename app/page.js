@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
-import Marquee from "../components/Marquee";
 import Programs from "../components/Programs";
 import Panels from "../components/Panels";
 import Plans from "../components/Plans";
@@ -17,7 +16,6 @@ export default function Page() {
       <Header />
       <main>
         <Hero />
-        <Marquee />
         <Programs />
         <Panels />
         <Plans />

@@ -1,13 +1,13 @@
 "use client";
 import { useState } from "react";
 import Reveal from "./Reveal";
-import { Arrow } from "./Icons";
+import { Arrow, Dumbbell, Lotus, Heart } from "./Icons";
 import { useApp } from "./Providers";
 
 const WK = [
-  ["/img/w1.jpg", "სახლში", "ვარჯიშები აღჭურვილობის გარეშე"],
-  ["/img/w2.jpg", "დარბაზში", "ძალისა და მასის პროგრამები"],
-  ["/img/w3.jpg", "იოგა და გაჭიმვა", "ბალანსი სხეულისა და გონებისთვის"],
+  [Heart, "სახლში", "ვარჯიშები აღჭურვილობის გარეშე"],
+  [Dumbbell, "დარბაზში", "ძალისა და მასის პროგრამები"],
+  [Lotus, "იოგა და გაჭიმვა", "ბალანსი სხეულისა და გონებისთვის"],
 ];
 
 export default function Workouts() {
@@ -20,7 +20,7 @@ export default function Workouts() {
     setBad(false); setEmail(""); toast("დაგამატეთ სიაში — პირველებს შეგატყობინებთ");
   };
   return (
-    <section className="section wk-sec" id="workouts">
+    <section className="section plate flip wk-sec" id="workouts">
       <div className="wrap">
         <Reveal className="sec-head">
           <p className="eyebrow center">მალე</p>
@@ -28,11 +28,11 @@ export default function Workouts() {
           <p className="lead">სრული ჯანსაღი ცხოვრების სისტემა: კვება და მოძრაობა ერთ სივრცეში.</p>
         </Reveal>
         <div className="wk-grid">
-          {WK.map(([src, t, d], i) => (
+          {WK.map(([Ic, t, d], i) => (
             <Reveal key={t} delay={i * 0.1} className="wk">
-              <img src={src} alt="" loading="lazy" />
-              <span className="soon">მალე</span>
+              <span className="badge-ic"><Ic /></span>
               <div><h3>{t}</h3><p>{d}</p></div>
+              <span className="soon">მალე</span>
             </Reveal>
           ))}
         </div>
@@ -40,7 +40,7 @@ export default function Workouts() {
           <form className="wait" onSubmit={submit} noValidate>
             <label className="sr" htmlFor="wl">ელფოსტა</label>
             <input id="wl" type="email" inputMode="email" autoComplete="email" placeholder="შენი ელფოსტა" value={email} onChange={(e) => setEmail(e.target.value)} style={bad ? { borderColor: "#b3261e" } : null} aria-invalid={bad} />
-            <button className="btn btn-olive" type="submit">შემატყობინეთ <Arrow /></button>
+            <button className="btn btn-forest" type="submit">შემატყობინეთ <Arrow /></button>
           </form>
           {bad && <p role="alert" style={{ textAlign: "center", color: "#b3261e", fontSize: 14, marginTop: 8 }}>შეიყვანე სწორი ელფოსტა</p>}
         </Reveal>
