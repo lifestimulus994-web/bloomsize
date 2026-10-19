@@ -13,8 +13,6 @@ export default function Hero() {
   return (
     <section className="hero" id="top">
       <div className="hero-bg" aria-hidden="true" />
-      <motion.img className="hero-woman" src="/bg/woman.webp" alt="ბედნიერი გოგონა, რომელიც სახეს მზისკენ აღმართავს" width="1100" height="1363" fetchPriority="high"
-        initial={{ opacity: 0, scale: 1.04 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }} />
 
       <div className="wrap hero-in">
         <div className="hero-copy">
