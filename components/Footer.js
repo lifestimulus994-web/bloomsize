@@ -13,15 +13,15 @@ export default function Footer() {
     setEmail(""); toast("გამოწერა დაფიქსირდა");
   };
   return (
-    <footer className="ftr on-dark">
+    <footer className="plate flip ftr">
       <div className="wrap">
         <div className="final">
           <Reveal as="h2">იპოვე შენი გეგმა დღესვე</Reveal>
-          <Reveal delay={0.1}><button className="btn btn-light" onClick={() => openCheckout("plus")}>დაიწყე ახლავე <Arrow /></button></Reveal>
+          <Reveal delay={0.1}><button className="btn btn-forest" onClick={() => openCheckout("plus")}>დაიწყე ახლავე <Arrow /></button></Reveal>
         </div>
         <div className="ftr-grid">
           <div>
-            <span className="logo"><img src="/img/logo-light.png" alt="Bloomsize" width="170" height="48" /></span>
+            <span className="logo"><img src="/img/logo.png" alt="Bloomsize" width="170" height="48" /></span>
             <p>ჯანსაღი კვება, რომელიც შენს რიტმს მოერგება.</p>
           </div>
           <div>

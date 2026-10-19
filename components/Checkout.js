@@ -49,8 +49,8 @@ export default function Checkout({ planId, onClose, onDone }) {
   );
 
   return (
-    <motion.div className="ov" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
-      <motion.div className="modal" role="dialog" aria-modal="true" aria-label="გადახდა" initial={{ opacity: 0, y: 40, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20 }} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}>
+    <motion.div className="ov" data-lenis-prevent initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
+      <motion.div className="modal" role="dialog" aria-modal="true" data-lenis-prevent aria-label="გადახდა" initial={{ opacity: 0, y: 40, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20 }} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}>
         <button className="m-close" aria-label="დახურვა" onClick={onClose}><Close /></button>
         {paid ? (
           <div className="done">

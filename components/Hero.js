@@ -1,14 +1,12 @@
 "use client";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Arrow, Check, Leaf, Heart, Sprout } from "./Icons";
 import { useApp } from "./Providers";
 
 const up = (d) => ({ initial: { opacity: 0, y: 28 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.9, delay: d, ease: [0.16, 1, 0.3, 1] } });
 
 export default function Hero() {
-  const reduce = useReducedMotion();
   const { openCheckout } = useApp();
-  const float = (d) => (reduce ? {} : { animate: { y: [0, -8, 0] }, transition: { duration: 7, repeat: Infinity, ease: "easeInOut", delay: d } });
 
   return (
     <section className="hero" id="top">
@@ -36,7 +34,7 @@ export default function Hero() {
 
         <div className="hero-cards">
           <motion.div className="hcard hc-ring" {...up(0.55)}>
-            <motion.div className="hc-in" {...float(0)}>
+            <div className="hc-in">
               <div className="ring" role="img" aria-label="72 პროცენტი">
                 <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" className="r-bg" /><circle cx="50" cy="50" r="42" className="r-fg" pathLength="100" strokeDasharray="72 100" /></svg>
                 <b className="num">72%</b>
@@ -49,15 +47,15 @@ export default function Hero() {
                   <li><span><Check /></span>ხანგრძლივი შედეგი</li>
                 </ul>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
           <motion.div className="hcard hc-prog" {...up(0.7)}>
-            <motion.div className="hc-in" {...float(1.6)}>
+            <div className="hc-in">
               <span className="hc-leaf"><Leaf /></span>
               <h3>პროგრესი სხვანაირად იგრძნობა</h3>
               <p>პატარა ნაბიჯები.<br />დიდი ცვლილებები.</p>
               <div className="bars" aria-hidden="true"><i /><i /><i /><i /></div>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
