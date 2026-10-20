@@ -19,8 +19,8 @@ export default function Providers({ children }) {
   const close = useCallback(() => setPlan(null), []);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 0.9, smoothWheel: true });
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    const lenis = new Lenis({ lerp: 0.12, wheelMultiplier: 1, smoothWheel: true });
     let raf;
     const loop = (t) => { lenis.raf(t); raf = requestAnimationFrame(loop); };
     raf = requestAnimationFrame(loop);
