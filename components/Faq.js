@@ -8,7 +8,7 @@ import { FAQ } from "../lib/data";
 export default function Faq() {
   const [open, setOpen] = useState(0);
   return (
-    <section className="section" id="faq">
+    <section className="section plate" id="faq">
       <div className="wrap">
         <Reveal className="sec-head">
           <p className="eyebrow center">კითხვები</p>
