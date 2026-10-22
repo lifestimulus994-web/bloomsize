@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Arrow, Check, Leaf, Heart, Sprout } from "./Icons";
 import { useApp } from "./Providers";
@@ -7,10 +8,25 @@ const up = (d) => ({ initial: { opacity: 0, y: 28 }, animate: { opacity: 1, y: 0
 
 export default function Hero() {
   const { openCheckout } = useApp();
+  const blur = useRef(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width:900px)");
+    let tick = false;
+    const run = () => {
+      tick = false;
+      if (blur.current) blur.current.style.opacity = mq.matches ? Math.min(1, Math.max(0, window.scrollY / 380)) : 0;
+    };
+    const onScroll = () => { if (!tick) { tick = true; requestAnimationFrame(run); } };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    run();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <section className="hero" id="top">
       <div className="hero-bg" aria-hidden="true" />
+      <div className="hero-blur" ref={blur} aria-hidden="true" />
 
       <div className="wrap hero-in">
         <div className="hero-copy">
