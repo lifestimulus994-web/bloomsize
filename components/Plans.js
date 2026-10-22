@@ -14,7 +14,7 @@ export default function Plans() {
         <Reveal className="sec-head">
           <p className="eyebrow center">შენი გზა, შენი გეგმა</p>
           <h2>აირჩიე შენი პროგრამა</h2>
-          <p className="lead">ერთი და იგივე გამოცდილი მიდგომა, სამი გზა შენი საჭიროებისთვის. პირველი თვე ნახევარ ფასად.</p>
+          <p className="lead">კვება, კვება ვიდეოებით ან პირადი მხარდაჭერა: სამი გზა შენი საჭიროებისთვის. პირველი თვე ნახევარ ფასად.</p>
         </Reveal>
         <div className="plans">
           {PLANS.map((p, i) => {
@@ -32,7 +32,7 @@ export default function Plans() {
                 <div className="plan-price"><span className="num">{p.price}₾</span><small>/ თვეში</small></div>
                 <p className="plan-first">პირველი თვე: {p.first}₾</p>
                 <ul className="ticks">{p.features.map((f) => (<li key={f}><Check /> {f}</li>))}</ul>
-                <button className={`btn ${p.popular ? "btn-forest" : "btn-ghost"}`} onClick={() => openCheckout(p.id)}>აირჩიე {p.name} <Arrow /></button>
+                <button className={`btn ${p.popular ? "btn-forest" : "btn-ghost"}`} onClick={() => openCheckout(p.id)}>{p.id === "pro" ? "დაიწყე" : `აირჩიე ${p.name}`} <Arrow /></button>
               </Reveal>
             );
           })}
