@@ -31,8 +31,9 @@ export default function Plans() {
                 </div>
                 <div className="plan-price"><span className="num">{p.price}₾</span><small>/ თვეში</small></div>
                 <p className="plan-first">პირველი თვე: {p.first}₾</p>
-                <ul className="ticks">{p.features.map((f) => (<li key={f}><Check /> {f}</li>))}</ul>
-                <button className={`btn ${p.popular ? "btn-forest" : "btn-ghost"}`} onClick={() => openCheckout(p.id)}>{p.id === "pro" ? "დაიწყე" : `აირჩიე ${p.name}`} <Arrow /></button>
+                <ul className="ticks ticks-full">{p.features.map((f) => (<li key={f}><Check /> {f}</li>))}</ul>
+                <ul className="ticks ticks-short">{p.short.map((f) => (<li key={f}><Check /> {f}</li>))}</ul>
+                <button aria-label={`${p.name}: ${p.price}₾`} className={`btn ${p.popular ? "btn-forest" : "btn-ghost"}`} onClick={() => openCheckout(p.id)}>{p.id === "pro" ? "დაიწყე" : `აირჩიე ${p.name}`} <Arrow /></button>
               </Reveal>
             );
           })}
