@@ -248,6 +248,7 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
 .wk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:40px}
 .wk{border-radius:28px;padding:22px 24px;display:flex;align-items:center;gap:18px;position:relative}
 .wk p{font-size:14.5px}
+.wk-cta{display:flex;justify-content:center}
 .soon{position:absolute;right:18px;top:16px;font-size:12px;font-weight:300;background:var(--mint);color:var(--leaf);padding:3px 12px;border-radius:99px}
 .wait{display:flex;gap:12px;max-width:600px;margin:0 auto}
 .wait input,.news input{flex:1;min-width:0;min-height:56px;border-radius:99px;padding:0 24px;font-size:16px}
@@ -444,7 +445,7 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .plan .badge{right:14px;top:-12px;font-size:10.5px;padding:4px 11px}
   .plan .badge svg{width:11px;height:11px}
   .pay-note{margin-top:20px;font-size:11.5px;gap:10px}
-  .plate::after{background:linear-gradient(rgba(230,232,220,0) 0,rgba(230,232,220,.3) 70px)}
+  .plate::after,.banner::after{background:linear-gradient(rgba(230,232,220,0) 0,rgba(230,232,220,.3) 60px,rgba(230,232,220,.3) calc(100% - 60px),rgba(230,232,220,0) 100%)}
   .panels,.gcards,.tgrid,.wk-grid{gap:10px}
   .panel{padding:16px;border-radius:22px;min-height:0;gap:8px}
   .panel p,.gcard li,.wk p{font-size:12px}

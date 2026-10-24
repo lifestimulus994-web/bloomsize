@@ -26,7 +26,7 @@ export default function Footer() {
           </div>
           <div>
             <h4>პროგრამები</h4>
-            <ul><li><a href="#plans">Start</a></li><li><a href="#plans">Plus</a></li><li><a href="#plans">Pro</a></li><li><a href="#workouts">ვარჯიშები</a></li></ul>
+            <ul><li><a href="#plans">Start</a></li><li><a href="#plans">Plus</a></li><li><a href="#plans">Pro</a></li><li><a href="#workouts">ვიდეოები</a></li></ul>
           </div>
           <div>
             <h4>კომპანია</h4>
