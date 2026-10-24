@@ -387,7 +387,7 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .hero{padding:90px 0 32px}
   .hero-copy{max-width:206px}
   .hero-copy .eyebrow{max-width:none}
-  .hero h1{font-size:clamp(21px,6vw,24px);line-height:1.22;color:#12301F}
+  .hero h1{font-size:clamp(20px,5.6vw,22px);line-height:1.25;color:#12301F;white-space:nowrap}
   .hero .lead{font-size:12.5px;line-height:1.55;max-width:none;margin-top:12px;color:#2F3C2A}
   .hero-ctas{flex-direction:column;align-items:flex-start;gap:9px;margin-top:18px;max-width:none}
   .hero-ctas .btn{width:100%;flex:none;min-height:44px;font-size:14px;padding:0 16px}
