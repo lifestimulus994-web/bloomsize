@@ -1,5 +1,6 @@
 import "./globals.css";
 import Providers from "../components/Providers";
+import SiteContent from "../components/SiteContent";
 
 export const metadata = {
   title: "Bloomsize — ჯანსაღი კვება შენი რიტმისთვის",
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="ka">
       <body>
         <Providers>{children}</Providers>
+        <SiteContent />
       </body>
     </html>
   );
