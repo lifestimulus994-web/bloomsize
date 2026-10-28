@@ -30,7 +30,7 @@ export default function Footer() {
           </div>
           <div>
             <h4>კომპანია</h4>
-            <ul><li><a href="#how">როგორ მუშაობს</a></li><li><a href="#reviews">შეფასებები</a></li><li><a href="#faq">კითხვები</a></li></ul>
+            <ul><li><a href="#how">როგორ მუშაობს</a></li><li><a href="#faq">კითხვები</a></li></ul>
           </div>
           <div>
             <h4>კვირის რჩევები</h4>
