@@ -1,6 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useState, useRef } from "react";
 import { Menu, Close, Arrow } from "./Icons";
 import { useApp } from "./Providers";
 
@@ -61,24 +60,20 @@ export default function Header() {
           <button className="burger" aria-label="მენიუს გახსნა" onClick={() => setOpen(true)}><Menu /></button>
         </nav>
       </header>
-      <AnimatePresence>
-        {open && (
-          <motion.div className="mnav" data-lenis-prevent initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.3, delay: 0.1 } }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}>
-            <motion.div className="mnav-panel" initial={{ opacity: 0, y: -28, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -18, scale: 0.98 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
-              <div className="mnav-top">
-                <span className="logo"><img src="/img/logo.png" alt="Bloomsize" /></span>
-                <button className="burger" aria-label="დახურვა" style={{ display: "inline-flex" }} onClick={() => setOpen(false)}><Close /></button>
-              </div>
-              <div className="mnav-links">
-                {LINKS.map(([h, t], i) => (
-                  <motion.a key={h} href={h} className="m-link" onClick={() => setOpen(false)} initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.12 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}>{t}</motion.a>
-                ))}
-              </div>
-              <motion.button className="btn btn-forest" onClick={() => { setOpen(false); openCheckout("plus"); }} initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.14 + LINKS.length * 0.06, ease: [0.22, 1, 0.36, 1] }}>დაიწყე გზა <Arrow /></motion.button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {open && (
+        <div className="mnav">
+          <div className="mnav-panel">
+            <div className="mnav-top">
+              <span className="logo"><img src="/img/logo.png" alt="Bloomsize" /></span>
+              <button className="burger" aria-label="დახურვა" style={{ display: "inline-flex" }} onClick={() => setOpen(false)}><Close /></button>
+            </div>
+            <div className="mnav-links">
+              {LINKS.map(([h, t], i) => (<a key={h} href={h} className="m-link" onClick={() => setOpen(false)}>{t}</a>))}
+            </div>
+            <button className="btn btn-forest" onClick={() => { setOpen(false); openCheckout("plus"); }}>დაიწყე გზა <Arrow /></button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { Check, Close, Lock } from "./Icons";
 import { PLANS } from "../lib/data";
 
@@ -49,12 +48,12 @@ export default function Checkout({ planId, onClose, onDone }) {
   );
 
   return (
-    <motion.div className="ov" data-lenis-prevent initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
-      <motion.div className="modal" role="dialog" aria-modal="true" data-lenis-prevent aria-label="გადახდა" initial={{ opacity: 0, y: 40, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20 }} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}>
+    <div className="ov" data-lenis-prevent onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
+      <div className="modal" role="dialog" aria-modal="true" data-lenis-prevent aria-label="გადახდა">
         <button className="m-close" aria-label="დახურვა" onClick={onClose}><Close /></button>
         {paid ? (
           <div className="done">
-            <motion.div className="done-ic" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 260, damping: 18 }}><Check /></motion.div>
+            <div className="done-ic"><Check /></div>
             <h3>გადახდა წარმატებულია</h3>
             <p className="lead" style={{ margin: "0 auto" }}>პროგრამა {plan.name} გააქტიურებულია. დეტალებს ელფოსტაზე გამოგიგზავნით.</p>
             <button className="btn btn-forest" onClick={onClose}>დახურვა</button>
@@ -87,7 +86,7 @@ export default function Checkout({ planId, onClose, onDone }) {
             </form>
           </>
         )}
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }

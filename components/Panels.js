@@ -1,11 +1,8 @@
 "use client";
-import { motion, useReducedMotion } from "framer-motion";
 import Reveal from "./Reveal";
 import { Arrow, Leaf, Fish, Drop, Flame } from "./Icons";
 
 export default function Panels() {
-  const reduce = useReducedMotion();
-  const bob = (d) => (reduce ? {} : { animate: { y: [0, -8, 0] }, transition: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: d } });
   return (
     <section className="section plate panels-sec" id="how">
       <div className="wrap">
@@ -24,7 +21,7 @@ export default function Panels() {
           <Reveal className="panel">
             <h3>დღის გეგმა ერთ ეკრანზე</h3>
             <p>მენიუ, კალორიები და მაკროები. დააჭირე და ნახე რეცეპტი.</p>
-            <motion.div className="phone" {...bob(0)}>
+            <div className="phone">
               <div className="scr">
                 <div className="ps-head"><small>ოთხშაბათი · დღევანდელი გეგმა</small><strong>დილა მშვიდობისა, ნინო</strong></div>
                 <div className="rings">
@@ -36,10 +33,10 @@ export default function Panels() {
                 <div className="meal"><img src="/img/f-salmon.jpg" alt="" /><div><small>ლანჩი · 13:30</small><b>ორაგულის ბოული</b><em>610 კკალ</em></div></div>
                 <div className="meal"><img src="/img/f-plate.jpg" alt="" /><div><small>ვახშამი · 19:00</small><b>თევზი და ლობიო</b><em>520 კკალ</em></div></div>
               </div>
-            </motion.div>
+            </div>
           </Reveal>
 
-          <Reveal className="panel" delay={0.1}>
+          <Reveal className="panel" delay={0}>
             <h3>ექსპერტების შედგენილი დიეტები</h3>
             <p>12+ მიდგომა სხვადასხვა მიზნისთვის, მრავალფეროვანი და გემრიელი.</p>
             <div className="collage">
@@ -49,14 +46,10 @@ export default function Panels() {
               <img src="/img/f-salmon.jpg" alt="" loading="lazy" />
               <img src="/img/f-salad.jpg" alt="" loading="lazy" />
               <img src="/img/f-hands.jpg" alt="" loading="lazy" />
-              <motion.span className="round-ic" style={{ left: "6%", top: "34%" }} {...bob(0.3)}><Leaf /></motion.span>
-              <motion.span className="round-ic" style={{ left: "38%", top: "56%" }} {...bob(1)}><Fish /></motion.span>
-              <motion.span className="round-ic" style={{ right: "6%", top: "22%" }} {...bob(1.8)}><Drop /></motion.span>
-              <motion.span className="round-ic" style={{ right: "12%", bottom: "8%" }} {...bob(2.4)}><Flame /></motion.span>
             </div>
           </Reveal>
 
-          <Reveal className="panel" delay={0.2}>
+          <Reveal className="panel" delay={0}>
             <h3>ნუტრიციოლოგი გვერდით გიდგას</h3>
             <p>ყოველკვირეული check-in და პასუხები კითხვებზე.</p>
             <div className="chat">
@@ -64,7 +57,6 @@ export default function Panels() {
               <div className="cm out">ამ კვირას ბევრი ვიმოძრავე, ვახშამზე რას მირჩევთ?<small>20:12</small></div>
               <div className="cm in">დღეს მსუბუქი ცილოვანი ვახშამი. გეგმა უკვე განვაახლე.<small>20:14</small></div>
             </div>
-            <div className="chat-photo"><img src="/img/t2.jpg" alt="" loading="lazy" style={{ objectPosition: "50% 30%" }} /></div>
           </Reveal>
         </div>
       </div>
