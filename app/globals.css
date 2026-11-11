@@ -49,16 +49,13 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
 .sec-head .lead{margin:18px auto 0}
 
 /* glass surfaces */
-.glass,.nav,.hcard,.vcard,.panel,.plan,.gcard,.wk,.fq,.member,.feat,.ftr-grid{
+.glass,.nav,.hcard,.vcard,.panel,.plan,.gcard,.wk,.fq,.member,.ftr-grid{
   background:radial-gradient(130% 95% at 0% 0%,rgba(255,255,255,.7) 0,rgba(255,255,255,0) 52%),linear-gradient(150deg,rgba(255,255,255,.58),rgba(255,255,255,.26));
   border:1px solid rgba(255,255,255,.72);
   box-shadow:0 24px 46px -28px rgba(34,77,48,.42),inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(255,255,255,.28),inset 0 0 32px rgba(255,255,255,.14);}
 .nav,.hcard{-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4)}
 .wait input,.news input{background:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.75);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 10px 24px -16px rgba(34,77,48,.35)}
-.plate:not(.banner) > .wrap{position:relative;z-index:0}
-.plate:not(.banner) > .wrap::before,.plate:not(.banner) > .wrap::after{content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none;border:1px solid rgba(255,255,255,.75);background:radial-gradient(circle at 30% 26%,rgba(255,255,255,.85) 0,rgba(255,255,255,.12) 26%,rgba(140,170,130,.16) 62%,rgba(255,255,255,.55) 100%);box-shadow:inset -16px -22px 48px rgba(63,114,72,.2),inset 10px 14px 30px rgba(255,255,255,.5),0 34px 60px -34px rgba(34,77,48,.4)}
-.plate:not(.banner) > .wrap::before{width:clamp(180px,24vw,340px);aspect-ratio:1;right:-2%;top:-6%}
-.plate:not(.banner) > .wrap::after{width:clamp(220px,30vw,430px);aspect-ratio:1;left:-5%;bottom:-8%}
+.plate > .wrap{position:relative;z-index:0}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 30px;border-radius:99px;font-weight:400;font-size:16.5px;white-space:nowrap;transition:transform .3s var(--ease),background-color .25s,color .25s,box-shadow .3s}
@@ -217,19 +214,6 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
 .gcard h4{font-size:18px;margin-bottom:12px}
 .gcard li{font-size:15px;padding:5px 0;color:var(--text)}
 
-/* banner */
-.banner{padding:clamp(90px,10vw,150px) 0}
-.banner::before{background-image:var(--img-banner,url("/bg/hero.webp"));background-position:62% center}
-.bn-in{max-width:560px}
-.quote{font-size:clamp(15px,1.3vw,18px);color:var(--sage);margin-bottom:16px;font-weight:300}
-.banner h2{font-size:clamp(34px,4.2vw,58px);line-height:1.12;color:var(--forest)}
-.banner h2 em{font-style:normal;color:var(--leaf)}
-.feats{display:grid;gap:12px;margin:36px 0 36px;max-width:440px}
-.feat{display:flex;align-items:center;gap:14px;padding:14px 20px;border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.62),rgba(255,255,255,.3));border:1px solid var(--white-line);box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.9);color:var(--ink);font-weight:300;font-size:15.5px;line-height:1.35}
-.feat i{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;color:var(--forest);background:radial-gradient(circle at 34% 28%,#fff,#CFDABF)}
-.feat svg{width:22px;height:22px}
-
-
 /* workouts */
 .wk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:40px}
 .wk{border-radius:28px;padding:22px 24px;display:flex;align-items:center;gap:18px;position:relative}
@@ -321,10 +305,9 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .hero-bg,.hero-blur{background:var(--img-hero-m,url("/bg/hero-m.webp")) left top/120% auto no-repeat;-webkit-mask-image:linear-gradient(#000 55%,transparent 100%);mask-image:linear-gradient(#000 55%,transparent 100%)}
   .hero-blur{display:block;z-index:-2;background-image:var(--img-hero-m-blur,url("/bg/hero-m-blur.webp"));background-size:120% auto;background-position:left top;opacity:0;will-change:opacity}
   body{background:var(--bg) var(--img-tile,url("/bg/bg-m-tile.webp")) center top/100% auto repeat-y}
-  .hero::after,.plate::before,.banner::before{display:none}
-  .plate::after,.banner::after{background:rgba(230,232,220,.3)}
-  .plate:not(.banner) > .wrap::before,.plate:not(.banner) > .wrap::after{display:none}
-    .hero-copy{max-width:520px}
+  .hero::after,.plate::before{display:none}
+  .plate::after{background:rgba(230,232,220,.3)}
+  .hero-copy{max-width:520px}
   .hero-cards{position:static;display:grid;gap:14px;margin-top:34px;max-width:520px;pointer-events:auto}
   .hcard{position:relative;inset:auto;width:auto !important}
   .hero-points{flex-wrap:wrap;gap:16px 22px}
@@ -358,8 +341,6 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .row2{grid-template-columns:1fr 1fr}
   .pay-note{gap:16px}
   .final .btn{width:100%;max-width:340px}
-  .banner::before{background-position:78% center}
-  .banner::after{background:rgba(230,232,220,.42)}
 }
 
 /* phone: dense, compact layout like the target comp */
@@ -432,7 +413,7 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .plan .badge{right:14px;top:-12px;font-size:10.5px;padding:4px 11px}
   .plan .badge svg{width:11px;height:11px}
   .pay-note{margin-top:20px;font-size:11.5px;gap:10px}
-  .plate::after,.banner::after{background:linear-gradient(rgba(230,232,220,0) 0,rgba(230,232,220,.3) 60px,rgba(230,232,220,.3) calc(100% - 60px),rgba(230,232,220,0) 100%)}
+  .plate::after{background:linear-gradient(rgba(230,232,220,0) 0,rgba(230,232,220,.3) 60px,rgba(230,232,220,.3) calc(100% - 60px),rgba(230,232,220,0) 100%)}
   .panels,.gcards,.wk-grid{gap:10px}
   .panel{padding:16px;border-radius:22px;min-height:0;gap:8px}
   .panel p,.gcard li,.wk p{font-size:12px}
@@ -444,10 +425,6 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .road .lead{margin:12px auto 16px}
   .member{margin:18px 0 20px;padding:6px 16px 6px 6px}
   .member img{width:38px;height:38px}
-  .feats{margin:18px 0;gap:8px}
-  .feat{padding:9px 14px;border-radius:18px;gap:10px;font-size:13px}
-  .feat i{width:34px;height:34px}
-  .feat svg{width:16px;height:16px}
   .wk{padding:12px 14px;border-radius:20px;gap:12px}
   .wk-grid{margin-bottom:20px}
   .fq button{padding:14px 16px;font-size:13.5px;gap:10px}
