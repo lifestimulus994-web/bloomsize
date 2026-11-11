@@ -20,7 +20,7 @@ export default function Providers({ children }) {
     <Ctx.Provider value={{ openCheckout: (id) => setPlan(id), toast }}>
       {children}
       {plan && <Checkout key="co" planId={plan} onClose={close} onDone={toast} />}
-      {msg && <div className="toast" role="status" aria-live="polite">{Check /> {msg}</div>}
+      {msg && <div className="toast" role="status" aria-live="polite"><Check /> {msg}</div>}
     </Ctx.Provider>
   );
 }

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, Close, Arrow } from "./Icons";
 import { useApp } from "./Providers";
 
