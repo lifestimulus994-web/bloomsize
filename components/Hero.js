@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { Arrow, Check, Leaf, Heart, Sprout } from "./Icons";
+import { Arrow } from "./Icons";
 import { useApp } from "./Providers";
 
 export default function Hero() {
@@ -37,38 +37,6 @@ export default function Hero() {
           <div className="hero-ctas">
             <button className="btn btn-forest" onClick={() => openCheckout("plus")}>დაიწყე გზა <Arrow /></button>
             <a href="#programs" className="btn btn-ghost">გაიგე მეტი</a>
-          </div>
-          <ul className="hero-points">
-            <li><i><Leaf /></i><span>მეცნიერულად დასაბუთებული კვება</span></li>
-            <li><i><Heart /></i><span>მდგრადი შედეგები</span></li>
-            <li><i><Sprout /></i><span>უფრო ჯანსაღი, ბედნიერი შენ</span></li>
-          </ul>
-        </div>
-
-        <div className="hero-cards">
-          <div className="hcard hc-ring">
-            <div className="hc-in">
-              <div className="ring" role="img" aria-label="72 პროცენტი">
-                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" className="r-bg" /><circle cx="50" cy="50" r="42" className="r-fg" pathLength="100" strokeDasharray="72 100" /></svg>
-                <b className="num">72%</b>
-              </div>
-              <div>
-                <h3>თავს მსუბუქად იგრძნობ</h3>
-                <ul>
-                  <li><span><Check /></span>მეტი ენერგია</li>
-                  <li><span><Check /></span>ჯანსაღი ჩვევები</li>
-                  <li><span><Check /></span>ხანგრძლივი შედეგი</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="hcard hc-prog">
-            <div className="hc-in">
-              <span className="hc-leaf"><Leaf /></span>
-              <h3>პროგრესი სხვანაირად იგრძნობა</h3>
-              <p>პატარა ნაბიჯები.<br />დიდი ცვლილებები.</p>
-              <div className="bars" aria-hidden="true"><i /><i /><i /><i /></div>
-            </div>
           </div>
         </div>
       </div>
