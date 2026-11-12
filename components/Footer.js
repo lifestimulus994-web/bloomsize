@@ -5,7 +5,7 @@ import { Arrow, Send } from "./Icons";
 import { useApp } from "./Providers";
 
 export default function Footer() {
-  const { openCheckout, toast } = useApp();
+  const { openPlans, toast } = useApp();
   const [email, setEmail] = useState("");
   const sub = (e) => {
     e.preventDefault();
@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="wrap">
         <div className="final">
           <Reveal as="h2">იპოვე შენი გეგმა დღესვე</Reveal>
-          <Reveal delay={0.1}><button className="btn btn-forest" onClick={() => openCheckout("plus")}>დაიწყე ახლავე <Arrow /></button></Reveal>
+          <Reveal delay={0.1}><button className="btn btn-forest" onClick={openPlans}>დაიწყე ახლავე <Arrow /></button></Reveal>
         </div>
         <div className="ftr-grid">
           <div>

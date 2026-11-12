@@ -17,7 +17,7 @@ export default function Header() {
   const [active, setActive] = useState("#top");
   const last = useRef(0);
   const tick = useRef(false);
-  const { openCheckout } = useApp();
+  const { openPlans } = useApp();
 
   useEffect(() => {
     const onScroll = () => {
@@ -56,7 +56,7 @@ export default function Header() {
           <div className="links">
             {LINKS.map(([h, t]) => (<a key={h} href={h} className={active === h ? "on" : ""}>{t}</a>))}
           </div>
-          <button className="btn btn-forest nav-cta" onClick={() => openCheckout("plus")}>დაიწყე <Arrow /></button>
+          <button className="btn btn-forest nav-cta" onClick={openPlans}>დაიწყე <Arrow /></button>
           <button className="burger" aria-label="მენიუს გახსნა" onClick={() => setOpen(true)}><Menu /></button>
         </nav>
       </header>
@@ -70,7 +70,7 @@ export default function Header() {
             <div className="mnav-links">
               {LINKS.map(([h, t], i) => (<a key={h} href={h} className="m-link" onClick={() => setOpen(false)}>{t}</a>))}
             </div>
-            <button className="btn btn-forest" onClick={() => { setOpen(false); openCheckout("plus"); }}>დაიწყე გზა <Arrow /></button>
+            <button className="btn btn-forest" onClick={() => { setOpen(false); openPlans(); }}>დაიწყე გზა <Arrow /></button>
           </div>
         </div>
       )}

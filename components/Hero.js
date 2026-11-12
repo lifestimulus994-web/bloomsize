@@ -4,7 +4,7 @@ import { Arrow } from "./Icons";
 import { useApp } from "./Providers";
 
 export default function Hero() {
-  const { openCheckout } = useApp();
+  const { openPlans } = useApp();
   const blur = useRef(null);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function Hero() {
             მდგრადი წონის კლება, უკეთესი კვება და ჯანსაღი ცხოვრების წესი. შექმნილია იმისთვის, რომ შენი საუკეთესო ვერსია გაიფურჩქნოს.
           </p>
           <div className="hero-ctas">
-            <button className="btn btn-forest" onClick={() => openCheckout("plus")}>დაიწყე გზა <Arrow /></button>
+            <button className="btn btn-forest" onClick={openPlans}>დაიწყე გზა <Arrow /></button>
             <a href="#programs" className="btn btn-ghost">გაიგე მეტი</a>
           </div>
         </div>

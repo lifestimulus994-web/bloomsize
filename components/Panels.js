@@ -1,8 +1,10 @@
 "use client";
 import Reveal from "./Reveal";
 import { Arrow, Leaf, Fish, Drop, Flame } from "./Icons";
+import { useApp } from "./Providers";
 
 export default function Panels() {
+  const { openPlans } = useApp();
   return (
     <section className="section plate panels-sec" id="how">
       <div className="wrap">
@@ -13,7 +15,7 @@ export default function Panels() {
           </div>
           <div>
             <p className="lead" style={{ marginBottom: 22 }}>არავითარი გამოცნობა. ყოველ დილას იცი, რა მიირთვა და რატომ არის ეს შენთვის სწორი.</p>
-            <a href="#plans" className="btn btn-forest">აირჩიე პროგრამა <Arrow /></a>
+            <button className="btn btn-forest" onClick={openPlans}>აირჩიე პროგრამა <Arrow /></button>
           </div>
         </Reveal>
 
