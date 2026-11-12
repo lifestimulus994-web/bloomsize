@@ -42,10 +42,16 @@ export default function Panels() {
             <h3>ექსპერტების შედგენილი დიეტები</h3>
             <p>12+ მიდგომა სხვადასხვა მიზნისთვის, მრავალფეროვანი და გემრიელი.</p>
             <div className="collage">
-              <img src="/img/f-bowl.jpg" alt="" loading="lazy" />
+              <img className="c-big" src="/img/f-bowl.jpg" alt="" loading="lazy" />
               <img src="/img/f-greens.jpg" alt="" loading="lazy" />
+              <img src="/img/f-jar.jpg" alt="" loading="lazy" />
               <img src="/img/f-salmon.jpg" alt="" loading="lazy" />
               <img src="/img/f-salad.jpg" alt="" loading="lazy" />
+              <img src="/img/f-hands.jpg" alt="" loading="lazy" />
+              <span className="round-ic ic-leaf" aria-hidden="true"><Leaf /></span>
+              <span className="round-ic ic-fish" aria-hidden="true"><Fish /></span>
+              <span className="round-ic ic-drop1" aria-hidden="true"><Drop /></span>
+              <span className="round-ic ic-drop2" aria-hidden="true"><Drop /></span>
             </div>
           </Reveal>
 
