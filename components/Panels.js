@@ -51,7 +51,7 @@ export default function Panels() {
               <span className="round-ic ic-leaf" aria-hidden="true"><Leaf /></span>
               <span className="round-ic ic-fish" aria-hidden="true"><Fish /></span>
               <span className="round-ic ic-drop1" aria-hidden="true"><Drop /></span>
-              <span className="round-ic ic-drop2" aria-hidden="true"><Drop /></span>
+              <span className="round-ic ic-drop2" aria-hidden="true"><Flame /></span>
             </div>
           </Reveal>
 
