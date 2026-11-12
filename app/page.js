@@ -4,7 +4,6 @@ import Programs from "../components/Programs";
 import Panels from "../components/Panels";
 import Plans from "../components/Plans";
 import Roadmap from "../components/Roadmap";
-import Workouts from "../components/Workouts";
 import Faq from "../components/Faq";
 import Footer from "../components/Footer";
 
@@ -18,7 +17,6 @@ export default function Page() {
         <Panels />
         <Plans />
         <Roadmap />
-        <Workouts />
         <Faq />
       </main>
       <Footer />

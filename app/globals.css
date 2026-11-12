@@ -45,11 +45,17 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
 .plate::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--img-section,url("/bg/section.webp")) center/cover no-repeat}
 .plate::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(to bottom,var(--bg) 0,rgba(230,232,220,0) 12%,rgba(230,232,220,0) 88%,var(--bg) 100%)}
 .plate.flip::before{transform:scaleX(-1)}
+#programs::before{background-image:var(--img-programs,var(--img-section,url("/bg/section.webp")))}
+#how::before{background-image:var(--img-how,var(--img-section,url("/bg/section.webp")))}
+#plans::before{background-image:var(--img-plans,var(--img-section,url("/bg/section.webp")))}
+.plate.road::before{background-image:var(--img-road,var(--img-section,url("/bg/section.webp")))}
+#faq::before{background-image:var(--img-faq,var(--img-section,url("/bg/section.webp")))}
+#programs::before,#how::before,#plans::before,.plate.road::before,#faq::before{background-size:cover;background-position:center;background-repeat:no-repeat}
 .sec-head{text-align:center;max-width:780px;margin:0 auto clamp(40px,5vw,64px)}
 .sec-head .lead{margin:18px auto 0}
 
 /* glass surfaces */
-.glass,.nav,.vcard,.panel,.plan,.gcard,.wk,.fq,.member,.ftr-grid{
+.glass,.nav,.vcard,.panel,.plan,.gcard,.fq,.member,.ftr-grid{
   background:radial-gradient(130% 95% at 0% 0%,rgba(255,255,255,.7) 0,rgba(255,255,255,0) 52%),linear-gradient(150deg,rgba(255,255,255,.58),rgba(255,255,255,.26));
   border:1px solid rgba(255,255,255,.72);
   box-shadow:0 24px 46px -28px rgba(34,77,48,.42),inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(255,255,255,.28),inset 0 0 32px rgba(255,255,255,.14);}
@@ -186,12 +192,6 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
 .gcard h4{font-size:18px;margin-bottom:12px}
 .gcard li{font-size:15px;padding:5px 0;color:var(--text)}
 
-/* workouts */
-.wk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:40px}
-.wk{border-radius:28px;padding:22px 24px;display:flex;align-items:center;gap:18px;position:relative}
-.wk p{font-size:14.5px}
-.wk-cta{display:flex;justify-content:center}
-.soon{position:absolute;right:18px;top:16px;font-size:12px;font-weight:300;background:var(--mint);color:var(--leaf);padding:3px 12px;border-radius:99px}
 .wait{display:flex;gap:12px;max-width:600px;margin:0 auto}
 .wait input,.news input{flex:1;min-width:0;min-height:56px;border-radius:99px;padding:0 24px;font-size:16px}
 .wait input:focus{outline:2px solid var(--leaf);outline-offset:2px}
@@ -280,8 +280,6 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .hero-copy{max-width:520px}
   .plans{grid-template-columns:1fr;max-width:520px}
   .plan.pop{margin-top:6px}
-  .wk-grid{grid-template-columns:1fr}
-  .wk-grid{max-width:560px;margin-left:auto;margin-right:auto}
   .modal{grid-template-columns:1fr}
   .m-sum{border-radius:34px 34px 0 0;padding:28px}
   .m-form{padding:24px}
@@ -358,9 +356,9 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .plan .badge svg{width:11px;height:11px}
   .pay-note{margin-top:20px;font-size:11.5px;gap:10px}
   .plate::after{background:linear-gradient(rgba(230,232,220,0) 0,rgba(230,232,220,.3) 60px,rgba(230,232,220,.3) calc(100% - 60px),rgba(230,232,220,0) 100%)}
-  .panels,.gcards,.wk-grid{gap:10px}
+  .panels,.gcards{gap:10px}
   .panel{padding:16px;border-radius:22px;min-height:0;gap:8px}
-  .panel p,.gcard li,.wk p{font-size:12px}
+  .panel p,.gcard li{font-size:12px}
   .pn-head{gap:10px;margin-bottom:18px}
   .pn-head .lead{margin-bottom:12px}
   .gcard{padding:14px 16px;border-radius:20px}
@@ -369,8 +367,6 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .road .lead{margin:12px auto 16px}
   .member{margin:18px 0 20px;padding:6px 16px 6px 6px}
   .member img{width:38px;height:38px}
-  .wk{padding:12px 14px;border-radius:20px;gap:12px}
-  .wk-grid{margin-bottom:20px}
   .fq button{padding:14px 16px;font-size:13.5px;gap:10px}
   .fq svg{width:18px;height:18px}
   .fq p{padding:0 16px 14px;font-size:12px}
