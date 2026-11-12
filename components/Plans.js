@@ -1,10 +1,9 @@
 "use client";
 import Reveal from "./Reveal";
-import { Check, Shield, Lock, Arrow, Leaf, Sprout, Crown } from "./Icons";
+import { Shield, Lock } from "./Icons";
+import PlanCard from "./PlanCard";
 import { PLANS } from "../lib/data";
 import { useApp } from "./Providers";
-
-const IC = { start: Leaf, plus: Sprout, pro: Crown };
 
 export default function Plans() {
   const { openCheckout } = useApp();
@@ -17,26 +16,11 @@ export default function Plans() {
           <p className="lead">კვება, კვება ვიდეოებით ან პირადი მხარდაჭერა: სამი გზა შენი საჭიროებისთვის. პირველი თვე ნახევარ ფასად.</p>
         </Reveal>
         <div className="plans">
-          {PLANS.map((p, i) => {
-            const Ic = IC[p.id];
-            return (
-              <Reveal key={p.id} delay={i * 0.1} className={`plan${p.popular ? " pop" : ""}`}>
-                {p.popular && <span className="badge"><Crown /> ყველაზე პოპულარული</span>}
-                <div className="plan-top">
-                  <span className="badge-ic"><Ic /></span>
-                  <div>
-                    <h3 className="plan-name num">{p.name}</h3>
-                    <p className="plan-for">{p.tag}</p>
-                  </div>
-                </div>
-                <div className="plan-price"><span className="num">{p.price}₾</span><small>/ თვეში</small></div>
-                <p className="plan-first">პირველი თვე: {p.first}₾</p>
-                <ul className="ticks ticks-full">{p.features.map((f) => (<li key={f}><Check /> {f}</li>))}</ul>
-                <ul className="ticks ticks-short">{p.short.map((f) => (<li key={f}><Check /> {f}</li>))}</ul>
-                <button aria-label={`${p.name}: ${p.price}₾`} className={`btn ${p.popular ? "btn-forest" : "btn-ghost"}`} onClick={() => openCheckout(p.id)}>{p.id === "pro" ? "დაიწყე" : `აირჩიე ${p.name}`} <Arrow /></button>
-              </Reveal>
-            );
-          })}
+          {PLANS.map((p, i) => (
+            <Reveal key={p.id} delay={i * 0.1} className={`plan${p.popular ? " pop" : ""}`}>
+              <PlanCard plan={p} onSelect={openCheckout} />
+            </Reveal>
+          ))}
         </div>
         <Reveal className="pay-note">
           <span><Lock /> დაცული გადახდა</span>

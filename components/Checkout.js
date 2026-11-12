@@ -8,6 +8,7 @@ const fmtExp = (v) => { const d = v.replace(/\D/g, "").slice(0, 4); return d.len
 
 export default function Checkout({ planId, onClose, onDone }) {
   const plan = PLANS.find((p) => p.id === planId) || PLANS[1];
+  const pk = (field) => `plan:${plan.id}:${field}`;
   const [f, setF] = useState({ email: "", name: "", card: "", exp: "", cvc: "" });
   const [err, setErr] = useState({});
   const [busy, setBusy] = useState(false);
@@ -62,10 +63,10 @@ export default function Checkout({ planId, onClose, onDone }) {
           <>
             <aside className="m-sum on-dark">
               <small>თქვენი არჩევანი</small>
-              <h3 className="num">{plan.name}</h3>
-              <div className="m-price"><span className="num">{plan.first}₾</span><small>პირველი თვე</small></div>
-              <small>შემდეგ {plan.price}₾ / თვეში. გააუქმე ნებისმიერ დროს.</small>
-              <ul className="ticks">{plan.features.slice(0, 4).map((x) => (<li key={x}><Check /> {x}</li>))}</ul>
+              <h3 className="num" data-bz-key={pk("name")}>{plan.name}</h3>
+              <div className="m-price"><span className="num" data-bz-key={pk("first")}>{`${plan.first}₾`}</span><small>პირველი თვე</small></div>
+              <small>შემდეგ <span data-bz-key={pk("price")}>{`${plan.price}₾`}</span> / თვეში. გააუქმე ნებისმიერ დროს.</small>
+              <ul className="ticks">{plan.features.slice(0, 4).map((x, i) => (<li key={x}><Check /> <span data-bz-key={pk(`f:${i}`)}>{x}</span></li>))}</ul>
             </aside>
             <form className="m-form" onSubmit={submit} noValidate>
               <div className="wallets">
@@ -80,7 +81,7 @@ export default function Checkout({ planId, onClose, onDone }) {
                 {field("exp", "ვადა", { inputMode: "numeric", autoComplete: "cc-exp", placeholder: "MM / YY", onChange: set("exp", fmtExp) })}
                 {field("cvc", "CVC", { inputMode: "numeric", autoComplete: "cc-csc", placeholder: "123", maxLength: 3, onChange: set("cvc", (v) => v.replace(/\D/g, "")) })}
               </div>
-              <button className="btn btn-forest" type="submit" disabled={busy} style={busy ? { opacity: 0.7 } : null}>{busy ? "მუშავდება..." : `გადაიხადე ${plan.first}₾`}</button>
+              <button className="btn btn-forest" type="submit" disabled={busy} style={busy ? { opacity: 0.7 } : null}>{busy ? "მუშავდება..." : <>გადაიხადე <span data-bz-key={pk("first")}>{`${plan.first}₾`}</span></>}</button>
               <p className="secure"><Lock /> დაცული გადახდა · 30 დღეში თანხის დაბრუნება</p>
               <p className="demo-tag">დემო რეჟიმი: რეალური თანხა არ ჩამოიჭრება და ბარათის მონაცემები არ ინახება.</p>
             </form>
