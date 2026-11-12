@@ -142,14 +142,14 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
 .meal em{font-style:normal;font-size:12px;color:var(--leaf)}
 .collage{position:relative;margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .collage img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:18px;display:block}
-.collage .c-big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto;height:100%}
+.collage .c-big{grid-column:span 2;grid-row:span 2;aspect-ratio:1/1;height:auto}
 .collage>img:nth-of-type(2),.collage>img:nth-of-type(3){height:100%;aspect-ratio:auto}
-.round-ic{position:absolute;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.88);color:var(--forest);box-shadow:0 10px 22px -10px rgba(34,66,42,.5);pointer-events:none}
+.round-ic{position:absolute;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.88);color:var(--forest);box-shadow:0 10px 22px -10px rgba(34,66,42,.5);pointer-events:none;transform:translate(-50%,-50%)}
 .round-ic svg{width:22px;height:22px}
-.collage .ic-leaf{left:6%;top:38%}
-.collage .ic-fish{left:21%;top:47%}
-.collage .ic-drop1{right:7%;top:25%}
-.collage .ic-drop2{right:13%;top:83%}
+.collage .ic-leaf{left:11.6%;top:41%}
+.collage .ic-fish{left:44%;top:63%}
+.collage .ic-drop1{left:86%;top:29%}
+.collage .ic-drop2{left:80%;top:87%}
 .chat{margin-top:auto;display:grid;gap:10px;background:#fff;border-radius:26px;padding:16px}
 .chat-user{display:flex;gap:12px;align-items:center;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .chat-user img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 20%}
