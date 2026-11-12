@@ -14,6 +14,9 @@ export default function Roadmap() {
   return (
     <section className="section plate flip road">
       <div className="wrap">
+        <Reveal className="priv-head">
+          <h3>Private-ის უპირატესობები</h3>
+        </Reveal>
         <div className="gcards">
           {CARDS.map(([t, items], i) => (
             <Reveal key={t} delay={i * 0.06} className="gcard">
