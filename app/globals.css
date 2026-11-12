@@ -147,9 +147,12 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
 .round-ic{position:absolute;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.88);color:var(--forest);box-shadow:0 10px 22px -10px rgba(34,66,42,.5);pointer-events:none;transform:translate(-50%,-50%)}
 .round-ic svg{width:22px;height:22px}
 .collage .ic-leaf{left:11.6%;top:41%}
-.collage .ic-fish{left:44%;top:63%}
-.collage .ic-drop1{left:86%;top:29%}
-.collage .ic-drop2{left:80%;top:87%}
+.collage .ic-fish{left:44%;top:63%;animation-delay:-1.1s}
+.collage .ic-drop1{left:86%;top:29%;animation-delay:-2.2s}
+.collage .ic-drop2{left:80%;top:87%;animation-delay:-3.3s}
+.round-ic{animation:ic-float 4.4s ease-in-out infinite;will-change:transform}
+@keyframes ic-float{0%,100%{transform:translate(-50%,-50%) translateY(0)}50%{transform:translate(-50%,-50%) translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.round-ic{animation:none}}
 .chat{margin-top:auto;display:grid;gap:10px;background:#fff;border-radius:26px;padding:16px}
 .chat-user{display:flex;gap:12px;align-items:center;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .chat-user img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 20%}
