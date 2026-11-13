@@ -165,7 +165,7 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
 .chat-photo{display:none}
 
 /* plans */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch;max-width:1100px;margin:0 auto}
+.plans{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;align-items:stretch;max-width:840px;margin:0 auto}
 .plan{border-radius:34px;padding:30px;display:flex;flex-direction:column;gap:16px;position:relative}
 .plan.pop{background:radial-gradient(130% 95% at 0% 0%,rgba(255,255,255,.85) 0,rgba(255,255,255,0) 55%),linear-gradient(150deg,rgba(214,232,212,.62),rgba(255,255,255,.22));border:1.5px solid rgba(63,114,72,.5);box-shadow:0 36px 64px -30px rgba(34,77,48,.6),inset 0 1px 0 #fff,inset 0 0 40px rgba(255,255,255,.2);margin-top:-14px;padding-bottom:36px}
 .plan .badge{position:absolute;right:24px;top:-15px;display:inline-flex;align-items:center;gap:7px;background:rgba(34,77,48,.8);color:#fff;font-size:13px;font-weight:300;padding:7px 16px;border-radius:99px}
@@ -242,7 +242,7 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
 .picker-head{text-align:center;margin:0 auto 26px;max-width:620px}
 .picker-head h3{font-size:clamp(21px,2.4vw,29px);color:var(--ink)}
 .picker-head p{font-size:15px;color:var(--muted);margin-top:6px}
-.picker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.picker-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:stretch}
 .picker .plan{padding:24px;border-radius:26px;gap:12px}
 .picker .plan.pop{margin-top:0;padding-bottom:24px}
 .picker .plan .badge{right:18px;top:-13px;font-size:12px;padding:6px 14px}

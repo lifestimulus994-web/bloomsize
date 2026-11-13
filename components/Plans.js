@@ -13,7 +13,7 @@ export default function Plans() {
         <Reveal className="sec-head">
           <p className="eyebrow center">შენი გზა, შენი გეგმა</p>
           <h2>აირჩიე შენი პროგრამა</h2>
-          <p className="lead">კვება, კვება ვიდეოებით ან პირადი მხარდაჭერა: სამი გზა შენი საჭიროებისთვის. პირველი თვე ნახევარ ფასად.</p>
+          <p className="lead">კვება ან კვება ვიდეოებითა და პირადი მხარდაჭერით: ორი გზა შენი საჭიროებისთვის. პირველი თვე ნახევარ ფასად.</p>
         </Reveal>
         <div className="plans">
           {PLANS.map((p, i) => (

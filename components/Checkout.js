@@ -7,7 +7,7 @@ const fmtCard = (v) => v.replace(/\D/g, "").slice(0, 16).replace(/(.{4})/g, "$1 
 const fmtExp = (v) => { const d = v.replace(/\D/g, "").slice(0, 4); return d.length > 2 ? d.slice(0, 2) + " / " + d.slice(2) : d; };
 
 export default function Checkout({ planId, programId, onClose, onDone }) {
-  const plan = PLANS.find((p) => p.id === planId) || PLANS[1];
+  const plan = PLANS.find((p) => p.id === planId) || PLANS[0];
   const prog = PROGRAMS.find((p) => p.id === programId) || null;
   const discounted = plan.first !== plan.price;
   const pk = (field) => `plan:${plan.id}:${field}`;

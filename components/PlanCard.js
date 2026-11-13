@@ -1,7 +1,7 @@
 "use client";
-import { Check, Arrow, Leaf, Sprout, Crown } from "./Icons";
+import { Check, Arrow, Leaf, Crown } from "./Icons";
 
-const IC = { food: Leaf, plus: Sprout, pro: Crown };
+const IC = { food: Leaf, pro: Crown };
 
 // Shared plan markup. Every editable string carries data-bz-key, so the plans
 // section, the picker modal and the checkout summary all read/write the same
