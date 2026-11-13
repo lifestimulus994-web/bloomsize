@@ -1,7 +1,7 @@
 "use client";
 import { Check, Arrow, Leaf, Crown } from "./Icons";
 
-const IC = { food: Leaf, pro: Crown };
+const IC = { food: "/img/plan-food.png", pro: "/img/plan-pro.png" };
 
 // Shared plan markup. Every editable string carries data-bz-key, so the plans
 // section, the picker modal and the checkout summary all read/write the same
@@ -9,7 +9,7 @@ const IC = { food: Leaf, pro: Crown };
 export const planKey = (id, field) => `plan:${id}:${field}`;
 
 export default function PlanCard({ plan: p, onSelect }) {
-  const Ic = IC[p.id] || Leaf;
+  const ic = IC[p.id];
   const k = (field) => planKey(p.id, field);
   const discounted = p.first !== p.price;
   return (
@@ -18,7 +18,9 @@ export default function PlanCard({ plan: p, onSelect }) {
         <span className="badge"><Crown /> <span data-bz-key={k("badge")}>ყველაზე პოპულარული</span></span>
       )}
       <div className="plan-top">
-        <span className="badge-ic"><Ic /></span>
+        <span className="badge-ic">
+          {ic ? <img src={ic} alt="" width="64" height="64" loading="lazy" decoding="async" /> : <Leaf />}
+        </span>
         <div>
           <h3 className={`plan-name${p.geo ? "" : " num"}`} data-bz-key={k("name")}>{p.name}</h3>
           {p.tag ? <p className="plan-for" data-bz-key={k("tag")}>{p.tag}</p> : null}

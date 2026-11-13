@@ -76,6 +76,8 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
 .btn-light:hover{transform:translateY(-2px)}
 .badge-ic{width:64px;height:64px;border-radius:50%;flex:none;display:grid;place-items:center;color:var(--forest);background:radial-gradient(circle at 34% 28%,#fff 0,#DCE5CF 48%,#B7C5A3 100%);box-shadow:inset 0 -6px 12px rgba(63,114,72,.16),0 8px 18px -10px rgba(34,66,42,.5)}
 .badge-ic svg{width:28px;height:28px}
+.plan .badge-ic{background:none;box-shadow:none}
+.plan .badge-ic img{width:100%;height:100%;object-fit:contain;display:block}
 .plate-ic{width:68px;height:68px;flex:none;display:grid;place-items:center}
 .plate-ic img{width:100%;height:100%;object-fit:contain;display:block}
 
@@ -381,8 +383,10 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .plan-price .num{font-size:22px}
   .plan-price small{font-size:10.5px}
   .plan-first{display:none}
-  .plan .ticks-full{display:none}
-  .plan .ticks-short{display:grid;grid-column:2;grid-row:2;gap:3px;margin:6px 0 0}
+  .plan .ticks-full{display:grid;grid-column:1/-1;grid-row:3;gap:4px;margin:8px 0 0}
+  .plan .ticks-full li{font-size:11.5px;line-height:1.4;align-items:flex-start}
+  .plan .ticks-full svg{margin-top:2px}
+  .plan .ticks-short{display:none}
   .ticks li{font-size:11px;gap:6px;line-height:1.35;align-items:center}
   .ticks svg{width:14px;height:14px;padding:2px;margin-top:0}
   .plan .btn{position:absolute;inset:0;width:100%;min-height:0;border-radius:22px;background:none;border:0;box-shadow:none;font-size:0;padding:0;margin:0}
