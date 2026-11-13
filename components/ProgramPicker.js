@@ -5,10 +5,19 @@ import { PROGRAMS, PLANS } from "../lib/data";
 
 const PLAN = PLANS[0];
 const k = (id, field) => `prog:${id}:${field}`;
+const isPhone = () =>
+  typeof window !== "undefined" && window.matchMedia("(max-width: 900px)").matches;
 
 export default function ProgramPicker({ onClose, onPay }) {
   const [sel, setSel] = useState(null);
   const chosen = PROGRAMS.find((p) => p.id === sel);
+
+  // On phones the card itself is the action: tapping a program goes straight
+  // to checkout, no select-then-confirm step.
+  const pick = (id) => {
+    if (isPhone()) onPay(id);
+    else setSel(id);
+  };
 
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && onClose();
@@ -27,7 +36,11 @@ export default function ProgramPicker({ onClose, onPay }) {
         </div>
         <div className="prog-grid">
           {PROGRAMS.map((pr) => (
-            <div key={pr.id} className={`prog${sel === pr.id ? " on" : ""}`}>
+            <div
+              key={pr.id}
+              className={`prog${sel === pr.id ? " on" : ""}`}
+              onClick={() => pick(pr.id)}
+            >
               <span className="prog-ic"><img src={pr.icon} alt="" width="56" height="56" loading="lazy" decoding="async" /></span>
               <h4 data-bz-key={k(pr.id, "title")}>{`„${pr.name}“ — ${pr.headline}`}</h4>
               <div className="prog-row">
@@ -38,7 +51,7 @@ export default function ProgramPicker({ onClose, onPay }) {
                 <b data-bz-key={`prog:why:label`}>რატომ გამოგადგება</b>
                 <p data-bz-key={k(pr.id, "why")}>{pr.why}</p>
               </div>
-              <button className={`btn ${sel === pr.id ? "btn-forest" : "btn-ghost"}`} onClick={() => setSel(pr.id)}>
+              <button className={`btn ${sel === pr.id ? "btn-forest" : "btn-ghost"}`} onClick={(e) => { e.stopPropagation(); pick(pr.id); }}>
                 <span data-bz-key={k(pr.id, "cta")}>{`ავირჩიო „${pr.name}“`}</span> <Arrow />
               </button>
             </div>
