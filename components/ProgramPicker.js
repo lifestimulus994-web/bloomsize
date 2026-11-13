@@ -1,23 +1,13 @@
 "use client";
-import { useEffect, useState } from "react";
-import { Close, Arrow } from "./Icons";
-import { PROGRAMS, PLANS } from "../lib/data";
+import { useEffect } from "react";
+import { Close } from "./Icons";
+import { PROGRAMS } from "../lib/data";
 
-const PLAN = PLANS[0];
 const k = (id, field) => `prog:${id}:${field}`;
-const isPhone = () =>
-  typeof window !== "undefined" && window.matchMedia("(max-width: 900px)").matches;
 
 export default function ProgramPicker({ onClose, onPay }) {
-  const [sel, setSel] = useState(null);
-  const chosen = PROGRAMS.find((p) => p.id === sel);
-
-  // On phones the card itself is the action: tapping a program goes straight
-  // to checkout, no select-then-confirm step.
-  const pick = (id) => {
-    if (isPhone()) onPay(id);
-    else setSel(id);
-  };
+  // One tap on a program card is the whole decision — go straight to checkout.
+  const pick = (id) => onPay(id);
 
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && onClose();
@@ -38,8 +28,14 @@ export default function ProgramPicker({ onClose, onPay }) {
           {PROGRAMS.map((pr) => (
             <div
               key={pr.id}
-              className={`prog${sel === pr.id ? " on" : ""}`}
+              className="prog"
+              role="button"
+              tabIndex={0}
+              aria-label={`ავირჩიო „${pr.name}“`}
               onClick={() => pick(pr.id)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(pr.id); }
+              }}
             >
               <span className="prog-ic"><img src={pr.icon} alt="" width="56" height="56" loading="lazy" decoding="async" /></span>
               <h4 data-bz-key={k(pr.id, "title")}>{`„${pr.name}“ — ${pr.headline}`}</h4>
@@ -51,20 +47,9 @@ export default function ProgramPicker({ onClose, onPay }) {
                 <b data-bz-key={`prog:why:label`}>რატომ გამოგადგება</b>
                 <p data-bz-key={k(pr.id, "why")}>{pr.why}</p>
               </div>
-              <button className={`btn ${sel === pr.id ? "btn-forest" : "btn-ghost"}`} onClick={(e) => { e.stopPropagation(); pick(pr.id); }}>
-                <span data-bz-key={k(pr.id, "cta")}>{`ავირჩიო „${pr.name}“`}</span> <Arrow />
-              </button>
             </div>
           ))}
         </div>
-        {chosen && (
-          <div className="prog-pay" role="status" aria-live="polite">
-            <p data-bz-key="prog:chosen">არჩეულია <b>{`„${chosen.name}“`}</b></p>
-            <button className="btn btn-forest" onClick={() => onPay(sel)}>
-              <span data-bz-key="prog:pay">გადახდა · </span><span className="num" data-bz-key="plan:food:price">{`${PLAN.price}₾`}</span>
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );
