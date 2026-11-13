@@ -28,6 +28,7 @@ export default function ProgramPicker({ onClose, onPay }) {
         <div className="prog-grid">
           {PROGRAMS.map((pr) => (
             <div key={pr.id} className={`prog${sel === pr.id ? " on" : ""}`}>
+              <span className="prog-ic"><img src={pr.icon} alt="" width="56" height="56" loading="lazy" decoding="async" /></span>
               <h4 data-bz-key={k(pr.id, "title")}>{`„${pr.name}“ — ${pr.headline}`}</h4>
               <div className="prog-row">
                 <b data-bz-key={`prog:who:label`}>ვისთვისაა</b>

@@ -257,6 +257,8 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
 .prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
 .prog{background:linear-gradient(150deg,rgba(255,255,255,.74),rgba(255,255,255,.4));border:1px solid rgba(255,255,255,.85);border-radius:26px;padding:24px;display:flex;flex-direction:column;gap:14px;box-shadow:0 20px 40px -30px rgba(34,77,48,.4)}
 .prog.on{border-color:rgba(63,114,72,.55);background:linear-gradient(150deg,rgba(214,232,212,.72),rgba(255,255,255,.5));box-shadow:0 26px 48px -28px rgba(34,77,48,.55)}
+.prog-ic{width:56px;height:56px;flex:none;display:grid;place-items:center;margin-bottom:-2px}
+.prog-ic img{width:100%;height:100%;object-fit:contain;display:block}
 .prog h4{font-size:17px;line-height:1.35;font-weight:400;color:var(--ink)}
 .prog-row b{display:block;font-size:12px;font-weight:400;color:var(--muted);margin-bottom:4px}
 .prog-row p{font-size:14px;line-height:1.55;color:var(--text)}
@@ -423,6 +425,7 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .picker .plan .badge svg{width:10px;height:10px}
   .picker .plan-desc{font-size:11px;line-height:1.5}
   .prog{padding:16px;border-radius:20px;gap:10px}
+  .prog-ic{width:44px;height:44px}
   .prog h4{font-size:14.5px}
   .prog-row b{font-size:11px;margin-bottom:2px}
   .prog-row p{font-size:12.5px;line-height:1.5}
