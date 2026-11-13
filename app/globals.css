@@ -177,6 +177,7 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
 .plan-price .num{font-size:46px;line-height:1;color:var(--ink)}
 .plan-price small{color:var(--muted);font-size:15px}
 .plan-first{font-size:14px;color:var(--leaf);font-weight:300;margin-top:-8px}
+.plan-desc{font-size:14.5px;line-height:1.6;color:var(--muted);margin:0}
 .ticks{display:grid;gap:12px}
 .ticks li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px}
 .ticks svg{width:21px;height:21px;color:var(--leaf);flex:none;margin-top:2px;padding:3px;border-radius:50%;background:var(--mint)}
@@ -252,6 +253,20 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
 .picker .ticks li{font-size:14px}
 .picker .badge-ic{width:52px;height:52px}
 .picker .badge-ic svg{width:24px;height:24px}
+
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.prog{background:linear-gradient(150deg,rgba(255,255,255,.74),rgba(255,255,255,.4));border:1px solid rgba(255,255,255,.85);border-radius:26px;padding:24px;display:flex;flex-direction:column;gap:14px;box-shadow:0 20px 40px -30px rgba(34,77,48,.4)}
+.prog.on{border-color:rgba(63,114,72,.55);background:linear-gradient(150deg,rgba(214,232,212,.72),rgba(255,255,255,.5));box-shadow:0 26px 48px -28px rgba(34,77,48,.55)}
+.prog h4{font-size:17px;line-height:1.35;font-weight:400;color:var(--ink)}
+.prog-row b{display:block;font-size:12px;font-weight:400;color:var(--muted);margin-bottom:4px}
+.prog-row p{font-size:14px;line-height:1.55;color:var(--text)}
+.prog .btn{width:100%;margin-top:auto;min-height:48px;font-size:15px;padding:0 18px}
+.prog .btn svg{width:16px;height:16px}
+.prog-pay{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:20px;padding:14px 20px;border-radius:24px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.85);box-shadow:0 18px 36px -26px rgba(34,77,48,.4)}
+.prog-pay p{font-size:15px;color:var(--text)}
+.prog-pay b{font-weight:400;color:var(--ink)}
+.prog-pay .btn{min-height:48px;padding:0 26px}
+.m-prog{display:block;margin-top:-6px;opacity:.85}
 .m-form{padding:38px;display:flex;flex-direction:column;gap:14px}
 .m-close{position:absolute;right:14px;top:14px;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.9);color:var(--ink);z-index:3}
 .m-close svg{width:22px;height:22px}
@@ -305,6 +320,8 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .m-form{padding:24px}
   .picker{padding:30px 22px 24px}
   .picker-grid{grid-template-columns:1fr;gap:14px;max-width:460px;margin:0 auto}
+  .prog-grid{grid-template-columns:1fr;gap:12px;max-width:520px;margin:0 auto}
+  .prog-pay{flex-direction:column;align-items:stretch;text-align:center;gap:10px}
 }
 @media (max-width:640px){
   body{font-size:16px}
@@ -403,6 +420,15 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .picker .plan .btn svg{display:block;width:14px;height:14px}
   .picker .plan .badge{right:12px;top:-11px;font-size:9.5px;padding:3px 9px}
   .picker .plan .badge svg{width:10px;height:10px}
+  .picker .plan-desc{font-size:11px;line-height:1.5}
+  .prog{padding:16px;border-radius:20px;gap:10px}
+  .prog h4{font-size:14.5px}
+  .prog-row b{font-size:11px;margin-bottom:2px}
+  .prog-row p{font-size:12.5px;line-height:1.5}
+  .prog .btn{min-height:44px;font-size:13.5px}
+  .prog-pay{padding:12px 14px;border-radius:18px}
+  .prog-pay p{font-size:13.5px}
+  .prog-pay .btn{min-height:44px;padding:0 18px}
   .pay-note{margin-top:20px;font-size:11.5px;gap:10px}
   .plate::after{background:linear-gradient(rgba(230,232,220,0) 0,rgba(230,232,220,.3) 60px,rgba(230,232,220,.3) calc(100% - 60px),rgba(230,232,220,0) 100%)}
   .panels,.gcards{gap:10px}

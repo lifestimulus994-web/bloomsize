@@ -6,7 +6,7 @@ import { PLANS } from "../lib/data";
 import { useApp } from "./Providers";
 
 export default function Plans() {
-  const { openCheckout } = useApp();
+  const { choosePlan } = useApp();
   return (
     <section className="section plate flip" id="plans">
       <div className="wrap">
@@ -18,7 +18,7 @@ export default function Plans() {
         <div className="plans">
           {PLANS.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.1} className={`plan${p.popular ? " pop" : ""}`}>
-              <PlanCard plan={p} onSelect={openCheckout} />
+              <PlanCard plan={p} onSelect={choosePlan} />
             </Reveal>
           ))}
         </div>

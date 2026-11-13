@@ -1,13 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Check, Close, Lock } from "./Icons";
-import { PLANS } from "../lib/data";
+import { PLANS, PROGRAMS } from "../lib/data";
 
 const fmtCard = (v) => v.replace(/\D/g, "").slice(0, 16).replace(/(.{4})/g, "$1 ").trim();
 const fmtExp = (v) => { const d = v.replace(/\D/g, "").slice(0, 4); return d.length > 2 ? d.slice(0, 2) + " / " + d.slice(2) : d; };
 
-export default function Checkout({ planId, onClose, onDone }) {
+export default function Checkout({ planId, programId, onClose, onDone }) {
   const plan = PLANS.find((p) => p.id === planId) || PLANS[1];
+  const prog = PROGRAMS.find((p) => p.id === programId) || null;
+  const discounted = plan.first !== plan.price;
   const pk = (field) => `plan:${plan.id}:${field}`;
   const [f, setF] = useState({ email: "", name: "", card: "", exp: "", cvc: "" });
   const [err, setErr] = useState({});
@@ -63,10 +65,20 @@ export default function Checkout({ planId, onClose, onDone }) {
           <>
             <aside className="m-sum on-dark">
               <small>თქვენი არჩევანი</small>
-              <h3 className="num" data-bz-key={pk("name")}>{plan.name}</h3>
-              <div className="m-price"><span className="num" data-bz-key={pk("first")}>{`${plan.first}₾`}</span><small>პირველი თვე</small></div>
-              <small>შემდეგ <span data-bz-key={pk("price")}>{`${plan.price}₾`}</span> / თვეში. გააუქმე ნებისმიერ დროს.</small>
-              <ul className="ticks">{plan.features.slice(0, 4).map((x, i) => (<li key={x}><Check /> <span data-bz-key={pk(`f:${i}`)}>{x}</span></li>))}</ul>
+              <h3 className={plan.geo ? "" : "num"} data-bz-key={pk("name")}>{plan.name}</h3>
+              {prog && <small className="m-prog">{`არჩეულია „${prog.name}“`}</small>}
+              <div className="m-price">
+                <span className="num" data-bz-key={pk("price")}>{`${plan.price}₾`}</span>
+                <small>{discounted ? "პირველი თვე" : "თვეში"}</small>
+              </div>
+              {discounted ? (
+                <small>შემდეგ <span data-bz-key={pk("priceAfter")}>{`${plan.price}₾`}</span> / თვეში. გააუქმე ნებისმიერ დროს.</small>
+              ) : (
+                <small>გადახდა ყოველთვიურია. გააუქმე ნებისმიერ დროს.</small>
+              )}
+              {plan.features.length > 0 && (
+                <ul className="ticks">{plan.features.slice(0, 4).map((x, i) => (<li key={x}><Check /> <span data-bz-key={pk(`f:${i}`)}>{x}</span></li>))}</ul>
+              )}
             </aside>
             <form className="m-form" onSubmit={submit} noValidate>
               <div className="wallets">
@@ -81,7 +93,7 @@ export default function Checkout({ planId, onClose, onDone }) {
                 {field("exp", "ვადა", { inputMode: "numeric", autoComplete: "cc-exp", placeholder: "MM / YY", onChange: set("exp", fmtExp) })}
                 {field("cvc", "CVC", { inputMode: "numeric", autoComplete: "cc-csc", placeholder: "123", maxLength: 3, onChange: set("cvc", (v) => v.replace(/\D/g, "")) })}
               </div>
-              <button className="btn btn-forest" type="submit" disabled={busy} style={busy ? { opacity: 0.7 } : null}>{busy ? "მუშავდება..." : <>გადაიხადე <span data-bz-key={pk("first")}>{`${plan.first}₾`}</span></>}</button>
+              <button className="btn btn-forest" type="submit" disabled={busy} style={busy ? { opacity: 0.7 } : null}>{busy ? "მუშავდება..." : <>გადაიხადე <span data-bz-key={pk(discounted ? "first" : "price")}>{`${plan.first}₾`}</span></>}</button>
               <p className="secure"><Lock /> დაცული გადახდა · 30 დღეში თანხის დაბრუნება</p>
               <p className="demo-tag">დემო რეჟიმი: რეალური თანხა არ ჩამოიჭრება და ბარათის მონაცემები არ ინახება.</p>
             </form>
