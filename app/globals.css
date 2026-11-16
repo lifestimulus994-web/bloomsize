@@ -306,6 +306,27 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:200;background:var(--forest);color:#fff;padding:14px 24px;border-radius:99px;font-weight:400;box-shadow:0 14px 40px -10px rgba(0,0,0,.4);display:flex;gap:10px;align-items:center;max-width:calc(100vw - 32px)}
 .toast svg{width:20px;height:20px;flex:none}
 
+/* overlay + step transitions: plans → programs → checkout all cross-fade */
+.ov{opacity:0;transition:opacity .3s var(--ease)}
+.ov.on{opacity:1}
+.ov:not(.on){pointer-events:none}
+.picker{opacity:0;transform:translateY(16px) scale(.986);transition:transform .52s var(--ease),opacity .3s var(--ease)}
+.ov.on .picker{opacity:1;transform:none}
+.modal{opacity:0;transform:translateY(18px) scale(.988);transition:transform .55s var(--ease),opacity .32s var(--ease)}
+.ov.on .modal{opacity:1;transform:none}
+.picker-grid > *,.prog-grid > *{opacity:0;transform:translateY(14px);transition:transform .5s var(--ease),opacity .34s var(--ease)}
+.ov.on .picker-grid > *,.ov.on .prog-grid > *{opacity:1;transform:none}
+.ov.on .picker-grid > *:nth-child(2),.ov.on .prog-grid > *:nth-child(2){transition-delay:.06s}
+.ov.on .picker-grid > *:nth-child(3),.ov.on .prog-grid > *:nth-child(3){transition-delay:.12s}
+.ov.on .picker-grid > *:nth-child(4){transition-delay:.18s}
+/* press feedback the moment a card is chosen, before the next step fades in */
+.ov.on .plan.picked,.ov.on .prog.picked{transform:scale(.967);opacity:.82;border-color:rgba(63,114,72,.6);transition:transform .18s var(--ease),opacity .18s var(--ease),border-color .18s var(--ease);transition-delay:0s}
+.toast{animation:toastIn .45s var(--ease) both}
+@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(16px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@media (prefers-reduced-motion: reduce){
+  .ov,.picker,.modal,.picker-grid > *,.prog-grid > *, .toast{transition:none;animation:none}
+}
+
 /* responsive */
 @media (max-width:1180px){
   .vcards{grid-template-columns:repeat(2,1fr)}

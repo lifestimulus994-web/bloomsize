@@ -9,5 +9,11 @@ _src
 check-*.png
 shot-*.png
 test-*.png
+flow-*.png
+frame-*.png
+lead-*.png
+mnav-*.png
+pw-*.png
+tab*.png
 *.jfif
 WhatsApp *

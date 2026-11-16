@@ -37,12 +37,18 @@ export default function Providers({ children }) {
     setPlan("food");
   }, []);
 
+  const openCheckout = useCallback((id) => {
+    setPicking(false); setProgPicking(false);
+    // let the chooser fade out first, then slide checkout in
+    if (id) setTimeout(() => setPlan(id), 160);
+  }, []);
+
   return (
-    <Ctx.Provider value={{ openCheckout: (id) => setPlan(id), openPlans: () => setPicking(true), choosePlan, toast }}>
+    <Ctx.Provider value={{ openCheckout, openPlans: () => setPicking(true), choosePlan, toast }}>
       {children}
-      {picking && <PlanPicker onClose={closePicker} onPick={choosePlan} />}
-      {progPicking && <ProgramPicker onClose={closePrograms} onPay={payProgram} />}
-      {plan && <Checkout key="co" planId={plan} programId={plan === "food" ? program : null} onClose={close} onDone={toast} />}
+      <PlanPicker open={picking} onClose={closePicker} onPick={choosePlan} />
+      <ProgramPicker open={progPicking} onClose={closePrograms} onPay={payProgram} />
+      <Checkout open={!!plan} planId={plan} programId={plan === "food" ? program : null} onClose={close} onDone={toast} />
       {msg && <div className="toast" role="status" aria-live="polite"><Check /> {msg}</div>}
     </Ctx.Provider>
   );

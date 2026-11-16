@@ -1,27 +1,38 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Check, Close, Lock } from "./Icons";
+import usePresence from "./usePresence";
 import { PLANS, PROGRAMS } from "../lib/data";
 
 const fmtCard = (v) => v.replace(/\D/g, "").slice(0, 16).replace(/(.{4})/g, "$1 ").trim();
 const fmtExp = (v) => { const d = v.replace(/\D/g, "").slice(0, 4); return d.length > 2 ? d.slice(0, 2) + " / " + d.slice(2) : d; };
+const BLANK = { email: "", name: "", card: "", exp: "", cvc: "" };
 
-export default function Checkout({ planId, programId, onClose, onDone }) {
-  const plan = PLANS.find((p) => p.id === planId) || PLANS[0];
-  const prog = PROGRAMS.find((p) => p.id === programId) || null;
+export default function Checkout({ open, planId, programId, onClose, onDone }) {
+  const { mounted, shown } = usePresence(open, 380);
+  // Keep the last real choice on screen while the modal fades out.
+  const [lastId, setLastId] = useState(planId || "food");
+  const [lastProg, setLastProg] = useState(programId);
+  useEffect(() => { if (planId) setLastId(planId); }, [planId]);
+  useEffect(() => { setLastProg(programId); }, [programId]);
+
+  const plan = PLANS.find((p) => p.id === (planId || lastId)) || PLANS[0];
+  const prog = PROGRAMS.find((p) => p.id === (programId || lastProg)) || null;
   const discounted = plan.first !== plan.price;
   const pk = (field) => `plan:${plan.id}:${field}`;
-  const [f, setF] = useState({ email: "", name: "", card: "", exp: "", cvc: "" });
+  const [f, setF] = useState(BLANK);
   const [err, setErr] = useState({});
   const [busy, setBusy] = useState(false);
   const [paid, setPaid] = useState(false);
 
   useEffect(() => {
+    if (!open) return;
+    setF(BLANK); setErr({}); setBusy(false); setPaid(false);
     const k = (e) => e.key === "Escape" && onClose();
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", k);
     return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", k); };
-  }, [onClose]);
+  }, [open, onClose]);
 
   const set = (k, fn = (v) => v) => (e) => setF((s) => ({ ...s, [k]: fn(e.target.value) }));
 
@@ -50,8 +61,9 @@ export default function Checkout({ planId, programId, onClose, onDone }) {
     </div>
   );
 
+  if (!mounted) return null;
   return (
-    <div className="ov" data-lenis-prevent onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
+    <div className={`ov${shown ? " on" : ""}`} data-lenis-prevent onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
       <div className="modal" role="dialog" aria-modal="true" data-lenis-prevent aria-label="გადახდა">
         <button className="m-close" aria-label="დახურვა" onClick={onClose}><Close /></button>
         {paid ? (
