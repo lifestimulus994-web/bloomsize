@@ -14,6 +14,8 @@ const LINKS = [
 export default function Header() {
   const [hide, setHide] = useState(false);
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [shown, setShown] = useState(false);
   const [active, setActive] = useState("#top");
   const last = useRef(0);
   const tick = useRef(false);
@@ -44,8 +46,21 @@ export default function Header() {
     return () => io.disconnect();
   }, []);
 
+  // Menu open/close: mount first, flip the class on the next frame so the
+  // transition runs, and keep the panel mounted until the exit animation ends.
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    let raf = 0;
+    let timer = 0;
+    if (open) {
+      setMounted(true);
+      document.body.style.overflow = "hidden";
+      raf = requestAnimationFrame(() => { raf = requestAnimationFrame(() => setShown(true)); });
+    } else {
+      setShown(false);
+      document.body.style.overflow = "";
+      timer = setTimeout(() => setMounted(false), 420);
+    }
+    return () => { cancelAnimationFrame(raf); clearTimeout(timer); };
   }, [open]);
 
   return (
@@ -60,8 +75,8 @@ export default function Header() {
           <button className="burger" aria-label="მენიუს გახსნა" onClick={() => setOpen(true)}><Menu /></button>
         </nav>
       </header>
-      {open && (
-        <div className="mnav">
+      {mounted && (
+        <div className={`mnav${shown ? " on" : ""}`} aria-hidden={!open}>
           <div className="mnav-panel">
             <div className="mnav-top">
               <span className="logo"><img src="/img/logo.png" alt="Bloomsize" /></span>
