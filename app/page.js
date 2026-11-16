@@ -15,8 +15,8 @@ export default function Page() {
         <Hero />
         <Programs />
         <Panels />
-        <Plans />
         <Roadmap />
+        <Plans />
         <Faq />
       </main>
       <Footer />
