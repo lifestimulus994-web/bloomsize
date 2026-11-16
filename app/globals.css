@@ -311,8 +311,7 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .hero-bg,.hero-blur{background:var(--img-hero-m,url("/bg/hero-m.webp")) left top/120% auto no-repeat;-webkit-mask-image:linear-gradient(#000 55%,transparent 100%);mask-image:linear-gradient(#000 55%,transparent 100%)}
   body{background:var(--bg)}
   .hero::after{display:none}
-  .plate::before{display:block;opacity:.55;-webkit-mask-image:linear-gradient(rgba(0,0,0,.6) 0,#000 14%,#000 86%,rgba(0,0,0,.6) 100%);mask-image:linear-gradient(rgba(0,0,0,.6) 0,#000 14%,#000 86%,rgba(0,0,0,.6) 100%)}
-  .plate::after{background:rgba(230,232,220,.3)}
+  .plate::before{display:block}
   .hero-copy{max-width:520px}
   .plans{grid-template-columns:1fr;max-width:520px}
   .plan.pop{margin-top:6px}
@@ -448,7 +447,7 @@ h3{font-size:clamp(19px,1.6vw,22px);line-height:1.3;font-weight:500}
   .prog-row b{font-size:11px;margin-bottom:2px}
   .prog-row p{font-size:12.5px;line-height:1.5}
   .pay-note{margin-top:20px;font-size:11.5px;gap:10px}
-  .plate::after{background:linear-gradient(rgba(230,232,220,0) 0,rgba(230,232,220,.3) 60px,rgba(230,232,220,.3) calc(100% - 60px),rgba(230,232,220,0) 100%)}
+  .plate::after{background:none}
   .panels,.gcards{gap:10px}
   .panel{padding:16px;border-radius:22px;min-height:0;gap:8px}
   .panel p,.gcard li{font-size:11.5px}
