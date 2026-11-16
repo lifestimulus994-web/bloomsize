@@ -4,3 +4,10 @@ node_modules
 _src
 .dev*.log
 .env*
+
+# local screenshots / scratch
+check-*.png
+shot-*.png
+test-*.png
+*.jfif
+WhatsApp *
