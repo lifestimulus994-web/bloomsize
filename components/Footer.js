@@ -30,7 +30,7 @@ export default function Footer() {
           </div>
           <div>
             <h4>კომპანია</h4>
-            <ul><li><a href="#how">როგორ მუშაობს</a></li><li><a href="#faq">კითხვები</a></li><li><a href="/privacy">კონფიდენციალურობა</a></li></ul>
+            <ul><li><a href="#how">როგორ მუშაობს</a></li><li><a href="#faq">კითხვები</a></li><li><a href="/privacy">კონფიდენციალურობა</a></li><li><a href="/about-us">Bloomsize-ის შესახებ</a></li><li><a href="/terms">მომსახურების პირობები</a></li><li><a href="/refund">გაუქმება და თანხის დაბრუნება</a></li></ul>
           </div>
           <div>
             <h4>კვირის რჩევები</h4>
@@ -44,9 +44,21 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        <div className="ftr-legal">
+          <span><b>ინდივიდუალური მეწარმე რობერტ კაზარიანი</b> · ს/კ 01011093158</span>
+          <span>ვარლამ ჩერქეზიშვილის ქ. 52, თბილისი, საქართველო</span>
+          <span>
+            <a href="mailto:info@bloomsize.co">info@bloomsize.co</a> · <a href="tel:+995557633356">+995 557 63 33 56</a>
+          </span>
+          <span>გადახდის პროვაიდერი: Flitt (Tpay LLC, ს/კ 402291220)</span>
+        </div>
         <div className="ftr-bot">
           <span>© 2026 Bloomsize. ყველა უფლება დაცულია.</span>
-          <span>დემო ვერსია</span>
+          <span className="ftr-links">
+            <a href="/privacy">კონფიდენციალურობა</a>
+            <a href="/terms">მომსახურების პირობები</a>
+            <a href="/refund">თანხის დაბრუნება</a>
+          </span>
         </div>
       </div>
     </footer>
